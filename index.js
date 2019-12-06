@@ -18,7 +18,7 @@ function netlifyPluginSearchIndex(pluginConfig) {
     name: '@netlify/plugin-search-index',
     // scopes: ['listSites'],
 
-    async postBuild(opts) {
+    async onPostBuild(opts) {
       const {
         constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST },
       } = opts
