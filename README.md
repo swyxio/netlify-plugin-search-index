@@ -1,6 +1,6 @@
 # Netlify Search Index Plugin
 
-Generate a Search Index you can query via JavaScript or a Netlify Function!
+Generate a Search Index you can query via a static JSON blob or a Netlify Function!
 
 You may not need this - There are other ways to add search to your site, like using Algolia or [Vanilla JS with a custom search Index](https://www.hawksworx.com/blog/adding-search-to-a-jamstack-site/).
 
