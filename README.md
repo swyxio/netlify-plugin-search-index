@@ -10,7 +10,7 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 
 Specify the plugin in your `netlify.yml`. No config is required but we show the default options here.
 
-**Generating both**:
+**Generating both serverless function and clientside JSON**:
 
 ```yml
 build:
@@ -47,7 +47,15 @@ plugins:
       debugMode: false # (for development) turn true for extra diagnostic logging
 ```
 
+Without config, this would generate a function at `https://yoursite.netlify.com/.netlify/functions/search` and a clientside JSON blob at `https://yoursite.netlify.com/searchIndex.json`
+
+<details>
+
+<summary>
+
 **Generating serverless function only**:
+
+</summary>
 
 To use this plugin only for the generated serveless function, supply `null` to the `publishDirJSONFileName`:
 
@@ -61,7 +69,15 @@ plugins:
 
 This would generate a Netlify function at `https://yoursite.netlify.com/.netlify/functions/mySearchFunction` which you can query with `https://yoursite.netlify.com/.netlify/functions/mySearchFunction?search=foo`.
 
+</details>
+
+<details>
+
+<summary>
+
 **Generating clientside JSON only**:
+
+</summary>
 
 To use this plugin only for the clientside JSON file, supply `null` to the `generatedFunctionName`:
 
@@ -75,7 +91,9 @@ plugins:
 
 This would generate a clientside JSON at `https://yoursite.netlify.com/mySearchIndex.json`.
 
-Supplying `null` to both would be meaningless.
+</details>
+
+Supplying `null` to both `generatedFunctionName` and `publishDirJSONFileName` would be meaningless (because there would be nothing to generate) and cause an error.
 
 ## What It Does
 

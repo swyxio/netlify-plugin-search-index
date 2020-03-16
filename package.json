@@ -23,8 +23,7 @@
     "html-to-text": "^5.1.1",
     "make-dir": "^3.0.0",
     "patch-package": "^6.2.1",
-    "path-exists": "^4.0.0",
-    "readdirp": "^3.2.0"
+    "path-exists": "^4.0.0"
   },
   "repository": {
     "type": "git",
