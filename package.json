@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
-    "prepublishOnly": "git push && git push --tags && gh-release"
+    "prepublishOnly": "git push && git push --tags && gh-release",
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "keywords": [
     "netlify",
@@ -15,9 +17,12 @@
   "license": "MIT",
   "dependencies": {
     "@netlify/zip-it-and-ship-it": "^0.4.0-5",
+    "chalk": "^3.0.0",
+    "copy-template-dir": "^1.4.0",
     "cpy": "^7.3.0",
     "html-to-text": "^5.1.1",
     "make-dir": "^3.0.0",
+    "patch-package": "^6.2.1",
     "path-exists": "^4.0.0",
     "readdirp": "^3.2.0"
   },
@@ -31,6 +36,7 @@
   "homepage": "https://github.com/sw-yx/netlify-plugin-search-index#readme",
   "devDependencies": {
     "auto-changelog": "^1.16.2",
-    "gh-release": "^3.5.0"
+    "gh-release": "^3.5.0",
+    "jest": "^25.1.0"
   }
 }
