@@ -91,7 +91,7 @@ You can use this plugin in two ways:
 - **Client-side**: You can simple require the JSON blob in your clientside JavaScript if it isn't too big:
     ```js
     // app.js
-    import searchIndex from './searchIndex/searchIndex.json'
+    import searchIndex from './searchIndex.json'
     ```
 - **Serverless-side**: You can use the generated function that reads the JSON and returns fuzzy search results to be lighter on your frontend. The generated function is available at `.netlify/functions/searchIndex` and you can use it with a search term like `.netlify/functions/searchIndex?s=foo` or `.netlify/functions/searchIndex?search=foo`:
     ```js
