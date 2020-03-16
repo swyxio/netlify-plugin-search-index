@@ -9,8 +9,8 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 ## Usage
 
 Specify the plugin in your `netlify.yml`. No config is required but we show the default options here.
-
-**Generating both serverless function and clientside JSON**:
+<details>
+<summary><b>Generating both serverless function and clientside JSON</b></summary>
 
 ```yml
 build:
@@ -47,16 +47,16 @@ plugins:
       debugMode: false # (for development) turn true for extra diagnostic logging
 ```
 
-Without config, this would generate a function at `https://yoursite.netlify.com/.netlify/functions/search` and a clientside JSON blob at `https://yoursite.netlify.com/searchIndex.json`
+</details>
+
+Without config, this would generate:
+
+- a function at `https://yoursite.netlify.com/.netlify/functions/search` and
+- a clientside JSON blob at `https://yoursite.netlify.com/searchIndex.json`
 
 <details>
-
-<summary>
-
-**Generating serverless function only**:
-
-</summary>
-
+<summary><b>Generating serverless function only</b></summary>
+  
 To use this plugin only for the generated serveless function, supply `null` to the `publishDirJSONFileName`:
 
 ```yml
@@ -73,11 +73,7 @@ This would generate a Netlify function at `https://yoursite.netlify.com/.netlify
 
 <details>
 
-<summary>
-
-**Generating clientside JSON only**:
-
-</summary>
+<summary><b>Generating clientside JSON only</b></summary>
 
 To use this plugin only for the clientside JSON file, supply `null` to the `generatedFunctionName`:
 
@@ -122,11 +118,6 @@ You can use this plugin in two ways:
 
 Under the hood, the search function uses [fuse.js](https://fusejs.io/) and in future we may expose more configurations for this.
 
-## Configuration
-
-Plugin options:
-
-- `searchIndexFolder` (default: `searchIndex`): where the plugin stores `searchIndex.json`.
 
 ## Notes for contributors
 
