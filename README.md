@@ -8,43 +8,40 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 
 ## Usage
 
-Specify the plugin in your `netlify.yml`. No config is required but we show the default options here.
+To install, add the plugin in your `netlify.toml`. No config is required but we show the default options here.
 
 **Generating both serverless function and clientside JSON**:
 
-```yml
-build:
-  functions: functions # must specify a functions folder for this to work
-  publish: build # your normal netlify publish folder
-  command: echo "your build command goes here" # your normal netlify build command
-
-plugins:
-  - package: netlify-plugin-search-index
-    # all config is optional, we just show you the defaults below
-    # config: 
-      # generatedFunctionName: search # change the name of generated folder in case of conflicts, use `null` to turn off
-      # publishDirJSONFileName: searchIndex # also use null to turn off
+```toml
+[[build]]
+  functions = functions # must specify a functions folder for this to work
+[[plugins]]
+  package = netlify-plugin-search-index
+    # all inputs is optional, we just show you the defaults below
+    # [plugins.inputs]: 
+      # generatedFunctionName = search # change the name of generated folder in case of conflicts, use `null` to turn off
+      # publishDirJSONFileName = searchIndex # also use null to turn off
 
       # # optional configs from html-to-text - for explanation see https://www.npmjs.com/package/html-to-text#user-content-options
-      # tables: []
-      # wordwrap: null
-      # linkHrefBaseUrl: http://asdf.com 
-      # hideLinkHrefIfSameAsText: false 
-      # noLinkBrackets: false
-      # ignoreHref: false
-      # ignoreImage: false
-      # preserveNewlines: false
-      # decodeOptions: ??
-      # uppercaseHeadings: false
-      # singleNewLineParagraphs: false
-      # baseElement: body # useful to try article or main
-      # returnDomByDefault: false
-      # longWordSplit: null
-      # format: text, image, lineBreak, paragraph, anchor, heading, table, orderedList, unorderedList, listItem, horizontalLine
-      # unorderedListItemPrefix: ' * '
+      # tables = []
+      # wordwrap = null
+      # linkHrefBaseUrl = http://asdf.com 
+      # hideLinkHrefIfSameAsText = false 
+      # noLinkBrackets = false
+      # ignoreHref = false
+      # ignoreImage = false
+      # preserveNewlines = false
+      # decodeOptions = ??
+      # uppercaseHeadings = false
+      # singleNewLineParagraphs = false
+      # baseElement = body # useful to try article or main
+      # returnDomByDefault = false
+      # longWordSplit = null
+      # format = # choose from text, image, lineBreak, paragraph, anchor, heading, table, orderedList, unorderedList, listItem, horizontalLine
+      # unorderedListItemPrefix = ' * '
 
-      # plugin debugging only
-      debugMode: false # (for development) turn true for extra diagnostic logging
+      # # plugin debugging only
+      # debugMode = false # (for development) turn true for extra diagnostic logging
 ```
 
 Without config, this would generate a function at `https://yoursite.netlify.com/.netlify/functions/search` and a clientside JSON blob at `https://yoursite.netlify.com/searchIndex.json`
@@ -59,12 +56,12 @@ Without config, this would generate a function at `https://yoursite.netlify.com/
 
 To use this plugin only for the generated serveless function, supply `null` to the `publishDirJSONFileName`:
 
-```yml
-plugins:
-  - package: netlify-plugin-search-index
-    config: 
-      generatedFunctionName: mySearchFunction
-      publishDirJSONFileName: null
+```toml
+[[plugins]]
+  package = netlify-plugin-search-index
+    [plugins.inputs]
+      generatedFunctionName = mySearchFunction
+      publishDirJSONFileName = null
 ```
 
 This would generate a Netlify function at `https://yoursite.netlify.com/.netlify/functions/mySearchFunction` which you can query with `https://yoursite.netlify.com/.netlify/functions/mySearchFunction?search=foo`.
@@ -82,11 +79,11 @@ This would generate a Netlify function at `https://yoursite.netlify.com/.netlify
 To use this plugin only for the clientside JSON file, supply `null` to the `generatedFunctionName`:
 
 ```yml
-plugins:
-  - package: netlify-plugin-search-index
-    config: 
-      generatedFunctionName: null
-      publishDirJSONFileName: mySearchIndex # you can use / to nest in a directory
+[[plugins]]
+  package = netlify-plugin-search-index
+    [plugins.inputs] = 
+      generatedFunctionName = null
+      publishDirJSONFileName = mySearchIndex # you can use / to nest in a directory
 ```
 
 This would generate a clientside JSON at `https://yoursite.netlify.com/mySearchIndex.json`.
