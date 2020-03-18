@@ -109,6 +109,7 @@ You can use this plugin in two ways:
     ```js
     // app.js
     document.getElementById('myForm').addEventListener('submit', async event => {
+      event.preventDefault()
       const result = await fetch(`/.netlify/functions/searchIndex?search=${event.target.searchText.value}`).then(x => x.json())
       document.getElementById('result').innerText = JSON.stringify(result, null, 2)
     })
