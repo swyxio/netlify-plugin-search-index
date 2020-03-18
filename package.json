@@ -11,7 +11,9 @@
   },
   "keywords": [
     "netlify",
-    "netlify-plugin"
+    "netlify-plugin",
+    "search",
+    "serverless"
   ],
   "author": "",
   "license": "MIT",
