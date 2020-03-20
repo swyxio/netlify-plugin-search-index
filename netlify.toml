@@ -1,6 +1,7 @@
 [build]
   command = "echo 'hi'"
   publish = "fixtures/publishDir"
+  functions = "fixtures/functions"
 
 [[plugins]]
   package = "./index.js"

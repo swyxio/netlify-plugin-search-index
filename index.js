@@ -84,7 +84,9 @@ function netlifyPluginSearchIndex(conf) {
        *
        */
       if (generatedFunctionName) {
-        if (debugMode) console.log({FUNCTIONS_SRC, generatedFunctionName})
+        if (typeof FUNCTIONS_SRC === 'undefined') {
+          throw new Error('FUNCTIONS_SRC is undefined - did you forget to declare a functions folder in netlify.toml? https://github.com/sw-yx/netlify-plugin-search-index#usage')
+        }
         const searchIndexFunctionPath = path.join(
           FUNCTIONS_SRC,
           generatedFunctionName
