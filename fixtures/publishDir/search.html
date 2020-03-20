@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <h1>Basic Search</h1>
+    <div style="margin: 2em">
+      <form id="search-form">
+        <input name="searchText" />
+      </form>
+      <p>eg. "orange" or "gold fish"</p>
+    </div>
+    <div style="margin: 2em">
+      <p>results:</p>
+      <div id="search-result"></div>
+    </div>
+    <script>
+      document.getElementById('search-form').addEventListener('submit', async event => {
+        event.preventDefault()
+        const result = await fetch(`/.netlify/functions/mySearchFunction?search=${event.target.searchText.value}`)
+          .then(x => x.json())
+        document.getElementById('search-result').innerText = JSON.stringify(result, null, 2)
+      })
+    </script>
+  </body>
+</html>

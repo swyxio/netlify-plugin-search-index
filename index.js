@@ -8,21 +8,21 @@ const readDir = promisify(fs.readdir);
 const cpy = require('copy-template-dir');
 const copy = promisify(cpy);
 const { zipFunctions } = require('@netlify/zip-it-and-ship-it'); // eslint-disable-line
-const htmlToText = require('html-to-text');
+const { parse } = require('./parser')
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-function netlifyPluginSearchIndex(conf) {
+function netlifyPluginSearchIndex(_) {
   return {
     name: 'netlify-plugin-search-index',
     async onPostBuild(opts) {
       const {
         pluginConfig: {
+          ignore: filePathsToIgnore = [],
           generatedFunctionName = 'search',
           publishDirJSONFileName = 'searchIndex',
           debugMode,
-          ...htmlToTextOptions // https://www.npmjs.com/package/html-to-text#user-content-options
         },
         constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST }
       } = opts;
@@ -37,18 +37,20 @@ function netlifyPluginSearchIndex(conf) {
       }
 
       let newManifest = [];
-      newManifest = await walk(BUILD_DIR);
+      newManifest = (await walk(BUILD_DIR))
+        .filter(p =>
+          filePathsToIgnore
+            .find(r => p.replace(BUILD_DIR, '').match(r)) === undefined
+        )
+
       let searchIndex = {};
+
       // https://www.npmjs.com/package/html-to-text#user-content-options
       await Promise.all(
         newManifest.map(async (htmlFilePath) => {
           const indexPath = path.relative(BUILD_DIR, htmlFilePath);
           const htmlFileContent = await readFile(htmlFilePath, 'utf8');
-          const text = htmlToText.fromString(
-            htmlFileContent,
-            htmlToTextOptions
-          );
-          searchIndex[`/${indexPath}`] = text;
+          searchIndex[`/${indexPath}`] = await parse(htmlFileContent, htmlFilePath, { BUILD_DIR })
         })
       );
 

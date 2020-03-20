@@ -4,7 +4,7 @@ let searchIndex = require('./searchIndex.json'); // eslint-disable-line node/no-
 searchIndex = Object.entries(searchIndex).map(([k, v]) => {
   return {
     path: k,
-    text: v
+    ...v
   };
 });
 var options = {
@@ -14,8 +14,17 @@ var options = {
   distance: 100,
   maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: ['path', 'text']
+  // this should be templated at build time
+  keys: [
+    { name: 'path', weight: 0.9 },
+    { name: 'title', weight: 0.8 },
+    { name: 'keywords', weight: 0.5 },
+    { name: 'description', weight: 0.4 },
+    { name: 'headings', weight: 0.3 },
+    { name: 'text', weight: 0.1 },
+  ]
 };
+
 var fuse = new Fuse(searchIndex, options);
 
 exports.handler = async (event) => {

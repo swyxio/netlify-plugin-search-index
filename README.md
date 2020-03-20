@@ -26,29 +26,9 @@ To install, add the plugin in your `netlify.toml`. No config is required but we 
   package = netlify-plugin-search-index
     # all inputs is optional, we just show you the defaults below
     # [plugins.inputs]
+      # ignore = ['/ignore-this-file.html'] # don't index this file
       # generatedFunctionName = search # change the name of generated folder in case of conflicts, use `null` to turn off
       # publishDirJSONFileName = searchIndex # also use null to turn off
-
-      # # optional configs from html-to-text - for explanation see https://www.npmjs.com/package/html-to-text#user-content-options
-      # tables = []
-      # wordwrap = null
-      # linkHrefBaseUrl = http://asdf.com 
-      # hideLinkHrefIfSameAsText = false 
-      # noLinkBrackets = false
-      # ignoreHref = false
-      # ignoreImage = false
-      # preserveNewlines = false
-      # decodeOptions = ??
-      # uppercaseHeadings = false
-      # singleNewLineParagraphs = false
-      # baseElement = body # useful to try article or main
-      # returnDomByDefault = false
-      # longWordSplit = null
-      # format = # choose from text, image, lineBreak, paragraph, anchor, heading, table, orderedList, unorderedList, listItem, horizontalLine
-      # unorderedListItemPrefix = ' * '
-
-      # # plugin debugging only
-      # debugMode = false # (for development) turn true for extra diagnostic logging
 ```
 
 </details>
@@ -95,13 +75,33 @@ This would generate a clientside JSON at `https://yoursite.netlify.com/mySearchI
 
 Supplying `null` to both `generatedFunctionName` and `publishDirJSONFileName` would be meaningless (because there would be nothing to generate) and cause an error.
 
+## More config
+
+#### - ignore files:
+
+Your project probably contains some content files that you don't want your users to search. Pass an array of paths (or regex) to the files you don’t want to be indexed to dismiss them:
+
+```yml
+[[plugins]]
+  package = netlify-plugin-search-index
+    [plugins.inputs] = 
+      ignore = ['/ignore-this-file.html', /^\/devnull\/.*/]
+```
+
+#### - search params:
+
+- weights
+- fuseJS options
+
+
 ## What It Does
 
 After your project is built:
 
 - this plugin goes through your HTML files
-- converts them to searchable text with [`html-to-text`](http://npm.im/html-to-text)
-- stores them as a JSON blob in `/searchIndex/searchIndex.json` (*You can customize the folder name in case of conflict*)
+- extracts their metadata (title, description, keywords) with [`unified`](https://unifiedjs.com/)
+- converts them to searchable content, weighted by field type
+- stores them as a JSON blob in `/searchIndex/searchIndex.json`
 - generates a [Netlify Function](https://docs.netlify.com/functions/overview/?utm_source=twitter&utm_medium=laddersblog-swyx&utm_campaign=devex) that fuzzy searches against a query string with [fuse.js](https://fusejs.io/)
 
 You can use this plugin in two ways:
@@ -135,4 +135,4 @@ Hopefully it will be resolved or we can just fork `copy-template-dir` entirely l
 WE ARE SEEKING MAINTAINERS.
 
 - better html parsing - header tags and SEO metadata should be parsed too
-- expose fuse.js and html parse search options for more configurability
+- expose fuse.js options for more configurability
