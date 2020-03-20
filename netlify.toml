@@ -1,0 +1,8 @@
+[build]
+  command = "echo 'hi'"
+  publish = "fixtures/publishDir"
+
+[[plugins]]
+  package = "./index.js"
+  [plugins.inputs]
+    debugMode = true

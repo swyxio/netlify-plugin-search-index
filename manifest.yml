@@ -1,1 +1,22 @@
 name: netlify-plugin-search-index
+
+inputs:
+  - name: generatedFunctionName
+  - name: publishDirJSONFileName
+  - name: tables
+  - name: wordwrap
+  - name: linkHrefBaseUrl
+  - name: hideLinkHrefIfSameAsText
+  - name: noLinkBrackets
+  - name: ignoreHref
+  - name: ignoreImage
+  - name: preserveNewlines
+  - name: decodeOptions
+  - name: uppercaseHeadings
+  - name: singleNewLineParagraphs
+  - name: baseElement
+  - name: returnDomByDefault
+  - name: longWordSplit
+  - name: format
+  - name: unorderedListItemPrefix
+  - name: debugMode

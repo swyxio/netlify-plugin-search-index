@@ -21,7 +21,7 @@ To install, add the plugin in your `netlify.toml`. No config is required but we 
 [[plugins]]
   package = netlify-plugin-search-index
     # all inputs is optional, we just show you the defaults below
-    # [plugins.inputs]: 
+    # [plugins.inputs]
       # generatedFunctionName = search # change the name of generated folder in case of conflicts, use `null` to turn off
       # publishDirJSONFileName = searchIndex # also use null to turn off
 
