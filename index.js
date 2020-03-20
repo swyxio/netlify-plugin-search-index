@@ -73,7 +73,7 @@ function netlifyPluginSearchIndex(conf) {
         await makeDir(`${searchIndexPath}/..`); // make a dir out of the parent
         await writeFile(searchIndexPath, stringifiedIndex);
         console.log(
-          `Search Index JSON generated at ${chalk.blue(
+          `Search Index JSON generated at ${chalk.cyan(
             `/${publishDirJSONFileName}.json`
           )}!`
         );
@@ -109,7 +109,7 @@ function netlifyPluginSearchIndex(conf) {
         // we still need to zip this to dist because netlify build doesnt recognize generated functions
         await zipFunctions(FUNCTIONS_SRC, FUNCTIONS_DIST);
         console.log(
-          `Netlify Function generated at ${chalk.blue(
+          `Netlify Function generated at ${chalk.cyan(
             `/.netlify/functions/${generatedFunctionName}`
           )}!`
         );
