@@ -84,6 +84,7 @@ function netlifyPluginSearchIndex(conf) {
        *
        */
       if (generatedFunctionName) {
+        if (debugMode) console.log({FUNCTIONS_SRC, generatedFunctionName})
         const searchIndexFunctionPath = path.join(
           FUNCTIONS_SRC,
           generatedFunctionName
