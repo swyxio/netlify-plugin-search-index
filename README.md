@@ -6,6 +6,12 @@ You may not need this - There are other ways to add search to your site, like us
 
 However, you may wish to have a way to generate this index based ONLY on crawling your generated static site, or you may wish to do **index searches in a serverless function** instead of making your user download the entire index and run clientside.
 
+## Demo
+
+Demo site: https://netlify-plugin-search-index.netlify.com/.netlify/functions/search?s=web
+Demo search function: https://netlify-plugin-search-index.netlify.com/.netlify/functions/search?s=web
+Demo JSON blob: https://netlify-plugin-search-index.netlify.com/searchIndex.json
+
 ## Usage
 
 To install, add the plugin in your `netlify.toml`. No config is required but we show the default options here.
