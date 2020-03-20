@@ -10,8 +10,6 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 
 To install, add the plugin in your `netlify.toml`. No config is required but we show the default options here.
 
-**Generating both serverless function and clientside JSON**:
-
 <details>
 <summary><b>Generating both serverless function and clientside JSON</b></summary>
 
@@ -111,6 +109,7 @@ You can use this plugin in two ways:
     ```js
     // app.js
     document.getElementById('myForm').addEventListener('submit', async event => {
+      event.preventDefault()
       const result = await fetch(`/.netlify/functions/searchIndex?search=${event.target.searchText.value}`).then(x => x.json())
       document.getElementById('result').innerText = JSON.stringify(result, null, 2)
     })
