@@ -39,7 +39,6 @@ function netlifyPluginSearchIndex(_) {
 
       let searchIndex = {}
       const newManifest = await walk(BUILD_DIR, exclude)
-      console.log({ newManifest })
 
       // https://www.npmjs.com/package/html-to-text#user-content-options
       await Promise.all(

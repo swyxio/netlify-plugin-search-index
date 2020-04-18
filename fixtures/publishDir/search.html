@@ -16,7 +16,7 @@
     <script>
       document.getElementById('search-form').addEventListener('submit', async event => {
         event.preventDefault()
-        const result = await fetch(`/.netlify/functions/mySearchFunction?search=${event.target.searchText.value}`)
+        const result = await fetch(`/.netlify/functions/search?search=${event.target.searchText.value}`)
           .then(x => x.json())
 
         try {
