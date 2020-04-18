@@ -10,8 +10,8 @@ const Latin = require('parse-latin')
 const extractMeta = require('./meta')
 
 const DEFAULT_WEIGHTED_KEYS = [
-  { name: 'path', weight: 0.9 },
-  { name: 'title', weight: 0.8 },
+  { name: 'title', weight: 0.9 },
+  { name: 'path', weight: 0.8 },
   { name: 'keywords', weight: 0.5 },
   { name: 'description', weight: 0.4 },
   { name: 'headings', weight: 0.3 },
@@ -22,6 +22,7 @@ const indexKeys = [
   'title',
   'description',
   'text',
+  'image',
   'headings',
   'keywords',
   'from'

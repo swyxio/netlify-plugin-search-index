@@ -7,7 +7,7 @@ const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 function childContent(node) {
   let value
   visit(node, 'text', (textNode) => {
-    value = textNode.value.trim();
+    value = textNode.value.trim()
   })
   return (value && value.length) ? value : null
 }
@@ -25,12 +25,14 @@ function meta() {
       if (is(node, 'head')) {
         visit(node, (child) => {
           if (is(child, 'meta')) {
-            const { name, content } = child.properties
+            const { name, property, content } = child.properties
             if (name === 'description') {
               file.data.description = content
             } else if (name === 'keywords') {
               const keywords = content.split(',').map(e => e.trim())
               file.data.keywords = keywords
+            } else if (property === 'og:image') {
+              file.data.image = content
             }
           }
           if (is(child, 'title')) {

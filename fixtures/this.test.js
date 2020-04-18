@@ -14,7 +14,7 @@ test('plugin fixture works', () => {
       // from netlify.yml
       pluginConfig: {
         debugMode: false,
-        ignore: ['/search.html', /^\/devnull\/.*/],
+        exclude: ['/search.html', /^\/devnull\/.*/],
         generatedFunctionName: 'mySearchFunction',
         publishDirJSONFileName: 'mySearchIndex'
       },
@@ -26,7 +26,7 @@ test('plugin fixture works', () => {
     })
     .then(() => {
       index = require('./publishDir/mySearchIndex.json')
-      expect(true).toBe(true)
+      expect(Object.keys(index)).not.toBe(0)
     });
 });
 
@@ -36,8 +36,7 @@ test('files in ignored list are not searchable', () => {
 })
 
 test('search items have expected keys', () => {
-  Object.entries(index).forEach(([_, item]) => {
-    expect(Object.keys(item).filter(e => expectedKeys.indexOf(e) !== -1).length)
-      .toBe(expectedKeys.length)
+  expectedKeys.forEach((expectedKey) => {
+    expect(Object.entries(index).find(([_, e]) => !e[expectedKey])).toBe(undefined)
   })
 });

@@ -75,9 +75,9 @@ This would generate a clientside JSON at `https://yoursite.netlify.com/mySearchI
 
 Supplying `null` to both `generatedFunctionName` and `publishDirJSONFileName` would be meaningless (because there would be nothing to generate) and cause an error.
 
-## More config
+## More options
 
-#### - ignore files:
+#### Exclude files
 
 Your project probably contains some content files that you don't want your users to search. Pass an array of paths (or regex) to the files you don’t want to be indexed to dismiss them:
 
@@ -85,13 +85,13 @@ Your project probably contains some content files that you don't want your users
 [[plugins]]
   package = netlify-plugin-search-index
     [plugins.inputs] = 
-      ignore = ['/ignore-this-file.html', /^\/devnull\/.*/]
+      exclude = ['/ignore-this-file.html', /^\/devnull\/.*/]
 ```
 
-#### - search params:
+#### Search params
 
-- weights
-- fuseJS options
+At the moment of writing, it is not possible to pass custom options to FuseJS.
+If it's something that you would like to see implemented, let us know! ✌️
 
 
 ## What It Does
@@ -134,5 +134,7 @@ Hopefully it will be resolved or we can just fork `copy-template-dir` entirely l
 
 WE ARE SEEKING MAINTAINERS.
 
-- better html parsing - header tags and SEO metadata should be parsed too
-- expose fuse.js options for more configurability
+Micro Todo:
+- expose fuse.js and html parse search options for more configurability
+- filtering results
+- support non html files?
