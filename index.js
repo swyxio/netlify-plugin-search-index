@@ -39,6 +39,7 @@ function netlifyPluginSearchIndex(_) {
 
       let searchIndex = {}
       const newManifest = await walk(BUILD_DIR, exclude)
+      console.log({ newManifest })
 
       // https://www.npmjs.com/package/html-to-text#user-content-options
       await Promise.all(
@@ -118,7 +119,7 @@ function netlifyPluginSearchIndex(_) {
 module.exports = netlifyPluginSearchIndex;
 
 async function walk(dir, exclude = []) {
-  return (await globby(path.join(dir, '*/**/*.html')))
+  return (await globby(path.join(dir, '**/*.html')))
     .filter(p =>
       exclude
       .find(r => p.replace(dir, '').match(r)) === undefined

@@ -6,4 +6,5 @@
 [[plugins]]
   package = "./index.js"
   [plugins.inputs]
+    exclude = ["/search.html"]
     debugMode = true
