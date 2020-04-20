@@ -1,6 +1,6 @@
 {
   "name": "netlify-plugin-search-index",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Generate a Search Index you can query via JavaScript or a Netlify Function",
   "main": "index.js",
   "scripts": {
