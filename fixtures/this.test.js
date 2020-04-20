@@ -2,10 +2,9 @@
  * @jest-environment node
  */
 
-const fs = require('fs');
-const path = require('path');
+const { indexKeys: expectedKeys } = require('../parser')
 
-// actual test
+let index
 const netlifyPlugin = require('../index.js');
 test('plugin fixture works', () => {
   const initPlugin = netlifyPlugin();
@@ -15,6 +14,7 @@ test('plugin fixture works', () => {
       // from netlify.yml
       pluginConfig: {
         debugMode: false,
+        exclude: ['/search.html', /^\/devnull\/.*/],
         generatedFunctionName: 'mySearchFunction',
         publishDirJSONFileName: 'mySearchIndex'
       },
@@ -24,5 +24,19 @@ test('plugin fixture works', () => {
         FUNCTIONS_DIST: 'fixtures/functions-dist'
       }
     })
-    .then(() => expect(true).toBe(true));
+    .then(() => {
+      index = require('./publishDir/mySearchIndex.json')
+      expect(Object.keys(index)).not.toBe(0)
+    });
+});
+
+test('files in ignored list are not searchable', () => {
+  expect(Object.keys(index).find(e => e === '/search.html')).toBe(undefined)
+  expect(Object.keys(index).find(e => e.indexOf('/devnull/') === 0)).toBe(undefined)
+})
+
+test('search items have expected keys', () => {
+  expectedKeys.forEach((expectedKey) => {
+    expect(Object.entries(index).find(([_, e]) => !e[expectedKey])).toBe(undefined)
+  })
 });

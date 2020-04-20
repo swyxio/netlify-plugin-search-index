@@ -3,6 +3,7 @@ name: netlify-plugin-search-index
 inputs:
   - name: generatedFunctionName
   - name: publishDirJSONFileName
+  - name: exclude
   - name: tables
   - name: wordwrap
   - name: linkHrefBaseUrl

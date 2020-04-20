@@ -1,28 +1,29 @@
 const path = require('path');
 const fs = require('fs');
+const globby = require('globby');
 const { promisify } = require('util');
 const chalk = require('chalk');
 const makeDir = require('make-dir');
 const pathExists = require('path-exists');
-const readDir = promisify(fs.readdir);
+
 const cpy = require('copy-template-dir');
 const copy = promisify(cpy);
 const { zipFunctions } = require('@netlify/zip-it-and-ship-it'); // eslint-disable-line
-const htmlToText = require('html-to-text');
+const { parse } = require('./parser')
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-function netlifyPluginSearchIndex(conf) {
+function netlifyPluginSearchIndex(_) {
   return {
     name: 'netlify-plugin-search-index',
     async onPostBuild(opts) {
       const {
         pluginConfig: {
+          exclude = [],
           generatedFunctionName = 'search',
           publishDirJSONFileName = 'searchIndex',
           debugMode,
-          ...htmlToTextOptions // https://www.npmjs.com/package/html-to-text#user-content-options
         },
         constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST }
       } = opts;
@@ -36,19 +37,15 @@ function netlifyPluginSearchIndex(conf) {
         console.warn('debugMode is not implemented yet for this plugin');
       }
 
-      let newManifest = [];
-      newManifest = await walk(BUILD_DIR);
-      let searchIndex = {};
+      let searchIndex = {}
+      const newManifest = await walk(BUILD_DIR, exclude)
+
       // https://www.npmjs.com/package/html-to-text#user-content-options
       await Promise.all(
         newManifest.map(async (htmlFilePath) => {
           const indexPath = path.relative(BUILD_DIR, htmlFilePath);
           const htmlFileContent = await readFile(htmlFilePath, 'utf8');
-          const text = htmlToText.fromString(
-            htmlFileContent,
-            htmlToTextOptions
-          );
-          searchIndex[`/${indexPath}`] = text;
+          searchIndex[`/${indexPath}`] = await parse(htmlFileContent, htmlFilePath, { BUILD_DIR })
         })
       );
 
@@ -120,19 +117,10 @@ function netlifyPluginSearchIndex(conf) {
 }
 module.exports = netlifyPluginSearchIndex;
 
-// https://gist.github.com/kethinov/6658166
-async function walk(dir, filelist) {
-  var files = await readDir(dir);
-  filelist = filelist || [];
-  await Promise.all(
-    files.map(async function(file) {
-      const dirfile = path.join(dir, file);
-      if (fs.statSync(dirfile).isDirectory()) {
-        filelist = await walk(dirfile + '/', filelist);
-      } else {
-        if (dirfile.endsWith('.html')) filelist.push(dirfile);
-      }
-    })
-  );
-  return filelist;
+async function walk(dir, exclude = []) {
+  return (await globby(path.join(dir, '**/*.html')))
+    .filter(p =>
+      exclude
+      .find(r => p.replace(dir, '').match(r)) === undefined
+    )
 }

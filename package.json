@@ -6,8 +6,7 @@
   "scripts": {
     "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
     "prepublishOnly": "git push && git push --tags && gh-release",
-    "test": "jest",
-    "postinstall": "patch-package"
+    "test": "jest"
   },
   "keywords": [
     "netlify",
@@ -22,10 +21,20 @@
     "chalk": "^3.0.0",
     "copy-template-dir": "^1.4.0",
     "cpy": "^7.3.0",
-    "html-to-text": "^5.1.1",
+    "globby": "^11.0.0",
+    "hast-util-has-property": "^1.0.4",
+    "hast-util-is-element": "^1.0.4",
+    "hast-util-to-nlcst": "^1.2.7",
     "make-dir": "^3.0.0",
+    "nlcst-to-string": "^2.0.4",
+    "parse-latin": "^4.2.1",
     "patch-package": "^6.2.1",
-    "path-exists": "^4.0.0"
+    "path-exists": "^4.0.0",
+    "rehype-parse": "^6.0.2",
+    "unified": "^9.0.0",
+    "unist-util-remove": "^2.0.0",
+    "unist-util-visit": "^2.0.2",
+    "vfile": "^4.1.0"
   },
   "repository": {
     "type": "git",
