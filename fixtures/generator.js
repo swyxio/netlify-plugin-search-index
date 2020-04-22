@@ -98,7 +98,8 @@ async function main() {
     return console.error('Could not fetch newsAPI')
   }
 
-  articles.forEach(async (article, i) => {
+  articles.filter(e => e.source.name !== 'Youtube.com').forEach(async (article) => {
+    console.log(article.source)
     const { file, path: pathToFile } = await createVFile(article, ``);
     writeFileSyncRecursive(
       path.join("./publishDir", pathToFile),
