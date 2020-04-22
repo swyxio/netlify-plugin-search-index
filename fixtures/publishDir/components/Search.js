@@ -70,7 +70,8 @@ define('div.search', element => {
   render(element, html `
     <div class="splash">
       <div class="container">
-        <h1>Netlify search plugin demo</h1>
+        <a target="_blank" href="https://github.com/sw-yx/netlify-plugin-search-index">Github code here</a>
+        <h1 class="main-title">Netlify search plugin demo</h1>
         <p>
           This search bar does not rely on any external service. It queries a JSON search index
           generated at build time, from a Netlify function. Also it's lightweight, it automatically parses your content and implements <a href="https://fusejs.io/" target="_blank">FuseJS</a> weighted search 👏
@@ -92,7 +93,9 @@ define('div.search', element => {
       ${ searchState.results.map(renderResult) }
     </div>
     <style>
-
+      .main-title {
+        margin-top: 0;
+      }
       .search-wrap {
         margin-bottom: 30px;
       }
