@@ -3,11 +3,10 @@
  * HTML files to populate ./publishDir/articles
  */
 
-require('dotenv').config()
 const fs = require("fs");
 const path = require("path");
 const NewsAPI = require('newsapi');
-// create .env file at the root of fixtures folder
+
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
 const vfile = require('vfile')
@@ -47,13 +46,10 @@ async function createVFile(article) {
     url,
   } = article;
 
-  console.log({
-    name
-  })
 
   const subPath = name.split('.')[0].toLowerCase()
   const slug = url.split('/').filter(e => e).pop()
-  const pathname = `/articles/${subPath}/${slug}`
+  const fileName = `${subPath}/${slug}`
 
   const processor = unified()
     .use(parse, { fragment: true })
@@ -72,7 +68,7 @@ async function createVFile(article) {
           image,
           author,
           published,
-          pathname,
+          pathname: `/${fileName}.html`,
           description,
         },
       },
@@ -82,34 +78,63 @@ async function createVFile(article) {
 
   return {
     file,
-    path: `${pathname}.html`,
+    fileName,
   };
 }
-main()
 
-async function main() {
+async function fetchContent(res = [], max = 5, page = 1) {
+  if (page > max) {
+    return res
+  }
   const { status, articles } = await newsapi.v2.topHeadlines({
     category: "technology",
     language: "en",
     country: "us",
-  });
-
-  if (status !== 'ok') {
-    return console.error('Could not fetch newsAPI')
-  }
-
-  articles.filter(e => e.source.name !== 'Youtube.com').forEach(async (article) => {
-    console.log(article.source)
-    const { file, path: pathToFile } = await createVFile(article, ``);
-    writeFileSyncRecursive(
-      path.join("./publishDir", pathToFile),
-      file.contents
-    );
+    page
   })
+  if (status !== 'ok') {
+    throw new Error('Could not fetch NewsApi')
+  }
+  return fetchContent([...res, ...articles], max, page + 1)
 }
 
+function netlifyPluginGenerateArticles() {
+  return {
+    name: 'netlify-plugin-generate-article',
+    async onPostBuild(opts) {
+      const {
+        pluginConfig: {
+          folder = 'articles'
+        },
+        constants: { BUILD_DIR }
+      } = opts;
 
+      console.log({
+        NEWS_API_KEY: process.env.NEWS_API_KEY
+      })
 
+      console.log({
+        opts
+      })
+      
+      try {
+        const articles = await fetchContent()
+        // Youtube articles don't produce supported filenames
+        articles.filter(e => e.source.name !== 'Youtube.com').forEach(async (article) => {
+          const { file, fileName } = await createVFile(article);
+          writeFileSyncRecursive(
+            path.join(BUILD_DIR, folder, fileName),
+            file.contents
+          );
+        })
+      } catch(e) {
+        console.error(e)
+      }
+    }
+  }
+}
+
+module.exports = netlifyPluginGenerateArticles;
 
 /** Pasted from https://gist.github.com/drodsou/de2ba6291aea67ffc5bc4b52d8c32abd */
 function writeFileSyncRecursive(filename, content, charset) {

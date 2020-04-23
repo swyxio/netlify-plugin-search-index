@@ -1,8 +1,10 @@
 [build]
-  command = "echo 'hi'"
+  command = "echo 'hello Netlify build'"
   publish = "fixtures/publishDir"
   functions = "fixtures/functions"
 
+[[plugins]]
+  package = "./fixtures/generator"
 [[plugins]]
   package = "./index.js"
   [plugins.inputs]

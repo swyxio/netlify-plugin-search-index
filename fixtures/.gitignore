@@ -1,3 +1,4 @@
 functions-dist
+publishDir/articles
 publishDir/searchIndex.json
 functions/search

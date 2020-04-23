@@ -37,10 +37,6 @@ function renderResult(result) {
 define('div.search', element => {
   const [searchState, setSearchState] = useState({ loading: false, error: null, results: [] });
 
-  console.log({
-    cb: element.cb,
-    attrs: typeof element.getAttribute('cb')
-  })
   const onSubmit = async (ev) => {
     ev.preventDefault()
     const { target: { searchText: { value } }} = ev
@@ -52,7 +48,6 @@ define('div.search', element => {
       })
       const results = await fetch(`/.netlify/functions/search?search=${value}`)
         .then(x => x.json())
-      console.log('here', results)
       setSearchState({
         loading: false,
         results,
