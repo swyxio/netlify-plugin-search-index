@@ -5,6 +5,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const slugify = require('slugify');
 const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
@@ -48,7 +49,7 @@ async function createVFile(article) {
 
 
   const subPath = name.split('.')[0].toLowerCase()
-  const slug = url.split('/').filter(e => e).pop()
+  const slug = slugify(url.split('/').filter(e => e).pop())
   const fileName = `${subPath}/${slug}`
 
   const processor = unified()
@@ -108,22 +109,13 @@ function netlifyPluginGenerateArticles() {
         },
         constants: { BUILD_DIR }
       } = opts;
-
-      console.log({
-        NEWS_API_KEY: process.env.NEWS_API_KEY
-      })
-
-      console.log({
-        opts
-      })
       
       try {
         const articles = await fetchContent()
-        // Youtube articles don't produce supported filenames
-        articles.filter(e => e.source.name !== 'Youtube.com').forEach(async (article) => {
+        articles.forEach(async (article) => {
           const { file, fileName } = await createVFile(article);
           writeFileSyncRecursive(
-            path.join(BUILD_DIR, folder, fileName),
+            path.join(BUILD_DIR, folder, `${fileName}.html`),
             file.contents
           );
         })
