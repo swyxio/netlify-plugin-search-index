@@ -1,3 +1,4 @@
-## netlify-plugin-rss fixture
+## netlify-plugin-search fixture
 
-here is an example of a typical publish folder with top level files we dont want indexed in RSS, and then a `/blog` directory where we do want to generate an RSS feed. Check out [rss.xml](/rss.xml) for the generated feed from running our plugin code. (mocked in [rssfixture.js](../rssfixture.js))
+Here is an example of a typical publish folder of a news website.
+Articles are generated some time to time thanks to [News API](https://newsapi.org/).

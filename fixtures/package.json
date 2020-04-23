@@ -1,0 +1,21 @@
+{
+  "name": "netlify-plugin-search-examle",
+  "version": "0.0.1",
+  "description": "A simple example featuring Netlify build search plugin",
+  "main": "index.html",
+  "repository": "https://github.com/sw-yx/netlify-plugin-search-index",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "newsapi": "^2.4.0",
+    "rehype-document": "^4.0.0",
+    "rehype-meta": "^2.0.0",
+    "rehype-stringify": "^7.0.0",
+    "rimraf": "^3.0.2",
+    "slugify": "^1.4.0"
+  },
+  "scripts": {
+    "generate": "node generator.js"
+  }
+}
