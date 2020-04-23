@@ -1,53 +1,1435 @@
-<!doctype html>
+<html lang="en" data-react-helmet="lang">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <style data-href="/styles.09a1331cb3d5a24e2285.css">
+      html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      main,
+      menu,
+      nav,
+      section,
+      summary {
+        display: block;
+      }
+      audio,
+      canvas,
+      progress,
+      video {
+        display: inline-block;
+      }
+      audio:not([controls]) {
+        display: none;
+        height: 0;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      [hidden],
+      template {
+        display: none;
+      }
+      a {
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+      }
+      a:active,
+      a:hover {
+        outline-width: 0;
+      }
+      abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      b,
+      strong {
+        font-weight: inherit;
+        font-weight: bolder;
+      }
+      dfn {
+        font-style: italic;
+      }
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      mark {
+        background-color: #ff0;
+        color: #000;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      img {
+        border-style: none;
+      }
+      svg:not(:root) {
+        overflow: hidden;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      figure {
+        margin: 1em 40px;
+      }
+      hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font: inherit;
+        margin: 0;
+      }
+      optgroup {
+        font-weight: 700;
+      }
+      button,
+      input {
+        overflow: visible;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      [type='reset'],
+      [type='submit'],
+      button,
+      html [type='button'] {
+        -webkit-appearance: button;
+      }
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner,
+      button::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      [type='button']:-moz-focusring,
+      [type='reset']:-moz-focusring,
+      [type='submit']:-moz-focusring,
+      button:-moz-focusring {
+        outline: 1px dotted ButtonText;
+      }
+      fieldset {
+        border: 1px solid silver;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+      }
+      legend {
+        box-sizing: border-box;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        white-space: normal;
+      }
+      textarea {
+        overflow: auto;
+      }
+      [type='checkbox'],
+      [type='radio'] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      [type='number']::-webkit-inner-spin-button,
+      [type='number']::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type='search'] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      [type='search']::-webkit-search-cancel-button,
+      [type='search']::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: 0.54;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      html {
+        font: 112.5%/1.45em georgia, serif;
+        box-sizing: border-box;
+        overflow-y: scroll;
+      }
+      *,
+      :after,
+      :before {
+        box-sizing: inherit;
+      }
+      body {
+        color: rgba(0, 0, 0, 0.8);
+        font-family: georgia, serif;
+        font-weight: 400;
+        word-wrap: break-word;
+        -webkit-font-kerning: normal;
+        font-kerning: normal;
+        -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+        font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+      }
+      img {
+        max-width: 100%;
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      h1 {
+        font-size: 2.25rem;
+      }
+      h1,
+      h2 {
+        padding: 0;
+        margin: 0 0 1.45rem;
+        color: inherit;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        line-height: 1.1;
+      }
+      h2 {
+        font-size: 1.62671rem;
+      }
+      h3 {
+        font-size: 1.38316rem;
+      }
+      h3,
+      h4 {
+        padding: 0;
+        margin: 0 0 1.45rem;
+        color: inherit;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        line-height: 1.1;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+      h5 {
+        font-size: 0.85028rem;
+      }
+      h5,
+      h6 {
+        padding: 0;
+        margin: 0 0 1.45rem;
+        color: inherit;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-weight: 700;
+        text-rendering: optimizeLegibility;
+        line-height: 1.1;
+      }
+      h6 {
+        font-size: 0.78405rem;
+      }
+      hgroup {
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      ol,
+      ul {
+        padding: 0;
+        margin: 0 0 1.45rem 1.45rem;
+        list-style-position: outside;
+        list-style-image: none;
+      }
+      dd,
+      dl,
+      figure,
+      p {
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      pre {
+        margin: 0 0 1.45rem;
+        font-size: 0.85rem;
+        line-height: 1.42;
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+        overflow: auto;
+        word-wrap: normal;
+        padding: 1.45rem;
+      }
+      table {
+        font-size: 1rem;
+        line-height: 1.45rem;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      fieldset,
+      table {
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      blockquote {
+        padding: 0;
+        margin: 0 1.45rem 1.45rem;
+      }
+      form,
+      iframe,
+      noscript {
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      hr {
+        padding: 0;
+        margin: 0 0 calc(1.45rem - 1px);
+        background: rgba(0, 0, 0, 0.2);
+        border: none;
+        height: 1px;
+      }
+      address {
+        padding: 0;
+        margin: 0 0 1.45rem;
+      }
+      b,
+      dt,
+      strong,
+      th {
+        font-weight: 700;
+      }
+      li {
+        margin-bottom: 0.725rem;
+      }
+      ol li,
+      ul li {
+        padding-left: 0;
+      }
+      li > ol,
+      li > ul {
+        margin-left: 1.45rem;
+        margin-bottom: 0.725rem;
+        margin-top: 0.725rem;
+      }
+      blockquote :last-child,
+      li :last-child,
+      p :last-child {
+        margin-bottom: 0;
+      }
+      li > p {
+        margin-bottom: 0.725rem;
+      }
+      code,
+      kbd,
+      samp {
+        font-size: 0.85rem;
+        line-height: 1.45rem;
+      }
+      abbr,
+      abbr[title],
+      acronym {
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.5);
+        cursor: help;
+      }
+      abbr[title] {
+        text-decoration: none;
+      }
+      td,
+      th,
+      thead {
+        text-align: left;
+      }
+      td,
+      th {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        font-feature-settings: 'tnum';
+        -moz-font-feature-settings: 'tnum';
+        -ms-font-feature-settings: 'tnum';
+        -webkit-font-feature-settings: 'tnum';
+        padding: 0.725rem 0.96667rem calc(0.725rem - 1px);
+      }
+      td:first-child,
+      th:first-child {
+        padding-left: 0;
+      }
+      td:last-child,
+      th:last-child {
+        padding-right: 0;
+      }
+      code,
+      tt {
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+        font-family: SFMono-Regular, Consolas, Roboto Mono, Droid Sans Mono,
+          Liberation Mono, Menlo, Courier, monospace;
+        padding: 0.2em 0;
+      }
+      pre code {
+        background: none;
+        line-height: 1.42;
+      }
+      code:after,
+      code:before,
+      tt:after,
+      tt:before {
+        letter-spacing: -0.2em;
+        content: ' ';
+      }
+      pre code:after,
+      pre code:before,
+      pre tt:after,
+      pre tt:before {
+        content: '';
+      }
+      @media only screen and (max-width: 480px) {
+        html {
+          font-size: 100%;
+        }
+      }
+      body {
+        font-family: Lato, Fira Sans, Helvetica, Arial;
+        background: #afcfec;
+        background: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          from(#afcfec),
+          to(#78b0e1)
+        );
+        background: linear-gradient(0deg, #afcfec, #78b0e1);
+        position: relative;
+        min-height: 100vh;
+        padding-bottom: 100px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: Century Gothic, Futura, Helvetica, Arial;
+      }
+      .mainContainer {
+        max-width: 960;
+        padding-top: 0;
+      }
+      .headerLogo {
+        width: 100%;
+        padding: 50px 30%;
+        margin-bottom: 1em;
+      }
+      @media only screen and (max-width: 600px) {
+        .headerLogo {
+          padding: 10px 20px;
+          margin-bottom: 0;
+        }
+      }
+      .headerLogo h1 {
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+      }
+      .headerLogo h1 a {
+        display: block;
+        padding-top: 10%;
+        background-image: url(/static/knockout2-32859f08233fab89f4802a09fd93e9b9.svg);
+        background-repeat: no-repeat;
+        background-position-x: center;
+      }
+      @media only screen and (max-width: 600px) {
+        .headerLogo h1 a {
+          padding-top: 0;
+        }
+      }
+      .headerLogo h1 a span {
+        visibility: hidden;
+      }
+      footer {
+        text-align: center;
+        min-height: 100px;
+        padding: 2em;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+      .flexyColumn {
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2em 3em;
+      }
+      @media only screen and (min-width: 1000px) {
+        .flexyColumn {
+          width: 40em;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .flexyColumn {
+          padding: 1em 2em;
+        }
+      }
+      @media only screen and (max-width: 800px) {
+        .flexyColumn {
+          max-width: 80%;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .flexyColumn {
+          max-width: 90%;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .flexyColumn {
+          max-width: 100%;
+        }
+      }
+      .frontPageHeader {
+        min-height: 50vh;
+        border-bottom: 1px solid #fff;
+      }
+      .frontPageHeader h1 {
+        padding-top: 20vh;
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+      .frontPageHeader h1 a {
+        display: block;
+        height: 10vh;
+        background-image: url(/static/knockout2-32859f08233fab89f4802a09fd93e9b9.svg);
+        background-repeat: no-repeat;
+        background-position-x: center;
+      }
+      .frontPageHeader h1 a span {
+        margin-left: -9999px;
+      }
+      .frontPageHeader .advancePicture {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .frontPageHeader .advancePicture button {
+        background: none;
+        border: none;
+      }
+      .frontPage .content {
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+      .frontPage .content > div {
+        padding: 1em 1.5em;
+      }
+      .frontPage .introduction {
+        flex-basis: 33%;
+        max-width: 22em;
+      }
+      .frontPage .recentPosts {
+        flex-basis: 66%;
+        max-width: 40em;
+      }
+      @media only screen and (max-width: 600px) {
+        .frontPage .introduction {
+          flex-basis: 100%;
+        }
+        .frontPage .recentPosts {
+          flex-basis: 100%;
+          max-width: 22em;
+        }
+      }
+      .frontPage .finial svg {
+        margin-top: 1em;
+        height: 100px;
+        width: 100%;
+      }
+      .frontPage .finalWord {
+        text-align: center;
+      }
+      .hiddenLogin a {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #64b5e3;
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        opacity: 0.2;
+        z-index: 1;
+      }
+      .hiddenLogin a span {
+        margin-left: -9999px;
+      }
+      .singlePost {
+        background-color: #fff;
+        border-radius: 2px;
+      }
+      .singlePost .postDate {
+        text-align: right;
+        font-size: 80%;
+        opacity: 0.8;
+      }
+      .singlePost h1 a {
+        text-decoration: none;
+        color: #000;
+      }
+      .singlePost h1 a:hover {
+        text-decoration: underline;
+        position: relative;
+      }
+      .singlePost h1 a:hover:before {
+        content: '#';
+        display: block;
+        position: absolute;
+        left: -1em;
+        top: 0.5em;
+        font-size: 60%;
+        color: #888;
+      }
+      .postEnd {
+        text-align: center;
+      }
+      .postEnd .alpaca {
+        margin-top: 2em;
+        height: 100px;
+        margin-bottom: 2em;
+      }
+      .archivePage {
+        margin: 5%;
+        padding: 5%;
+        background-color: #fff;
+      }
+      .archivePage .archiveYears ul {
+        -webkit-column-count: 3;
+        column-count: 3;
+      }
+      .aboutPage {
+        background-color: #fff;
+      }
+      .aboutPage .selfie {
+        display: inline-box;
+        float: right;
+        width: 50%;
+        margin-left: 1em;
+        margin-bottom: 0.5em;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .colophon {
+        background-color: #fff;
+        border-radius: 2px;
+      }
+      .editingArea {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .editingArea .postForm {
+        flex-grow: 1;
+        padding-left: 2em;
+        padding-right: 2em;
+      }
+      .editingArea .preview {
+        margin-left: -2em;
+        flex-grow: 1;
+        min-width: 20em;
+      }
+      .postForm input[name='codename'],
+      .postForm input[name='title'] {
+        width: 100%;
+      }
+      .postForm textarea {
+        width: 100%;
+        min-height: 25em;
+      }
+      .postForm .controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      #saveBtn {
+        background-color: rgba(0, 0, 255, 0.2);
+      }
+      #publishBtn {
+        background-color: rgba(0, 255, 0, 0.2);
+      }
+      #deleteBtn {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+      #clearBtn {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .postResult {
+        padding: 0.3em;
+        background-color: rgba(0, 200, 0, 0.2);
+        margin-bottom: 1em;
+      }
+      .preview iframe {
+        width: 100%;
+        min-height: 30em;
+        height: 100%;
+      }
+      .postList {
+        padding: 2em;
+      }
+      .postList ul {
+        margin-left: 0;
+        -webkit-column-count: 2;
+        column-count: 2;
+      }
+      .postList ul li {
+        list-style-type: none;
+      }
+      .searchPosts {
+        text-align: center;
+      }
+    </style>
+    <meta name="generator" content="Gatsby 2.19.23" />
+    <link
+      rel="preconnect dns-prefetch"
+      href="https://www.google-analytics.com"
+    />
+    <title>You Will Never Be A Full Stack Developer | Seldo.com</title>
+    <meta
+      data-react-helmet="true"
+      name="description"
+      content='or, Career Advice For The Working Web Dev
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Netlify search plugin example</title>
-  <meta name="description" content="An example website featuring Netlify search plugin">
-  <meta name="author" content="hypervillain">
-  <style>
-    body {
-      margin: 0;
-    }
-  </style>
-</head>
+I have been thinking a lot about the thing we call "the stack", one of many vague concepts web developers use when describing themselves. People call themselves "frontend", "backend" and "full stack" but there&apos;s no real consensus on what any of those mean.
 
-<body>
-  <script type="module" src="./components/Splash.js"></script>
-  <script type="module" src="./components/Search.js"></script>
-  <script type="module">
-    import { render, html } from 'https://unpkg.com/uhtml?module';
-    render(
-      document.body,
-      html`
-        <main>
-          <div class="search"></div>
-        </main>
-        <style>
-          body {
-            height: 100%;
-            color: hsl(10, 20%, 20%);
-            background-color: 1FFF;
-            font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-            line-height: 1.5;
-            font-weight: 400;
-          }
-          .container {
-            max-width: 740px;
-            margin: 0 auto;
-            padding: 2em;
-          }
-          .splash {
-            background: #F7F7F7;
-          }
-          h1, p {
-            max-width: 580px;
-            margin-bottom: 24px;
-          }
-        </style>
-      `
-    );
-  </script>
-</body>
+What is the stack?
+
+Part of the problem is that the "stack" is enormous: it includes at a minimum HTML, CSS and JavaScript. But how deep do you go? There are many server-side languages, ther'
+    />
+    <meta
+      data-react-helmet="true"
+      property="og:title"
+      content="You Will Never Be A Full Stack Developer"
+    />
+    <meta property="og:image" content="https://via.placeholder.com/150" />
+    <meta
+      data-react-helmet="true"
+      property="og:description"
+      content='or, Career Advice For The Working Web Dev
+
+I have been thinking a lot about the thing we call "the stack", one of many vague concepts web developers use when describing themselves. People call themselves "frontend", "backend" and "full stack" but there&apos;s no real consensus on what any of those mean.
+
+What is the stack?
+
+Part of the problem is that the "stack" is enormous: it includes at a minimum HTML, CSS and JavaScript. But how deep do you go? There are many server-side languages, ther'
+    />
+    <meta data-react-helmet="true" property="og:type" content="website" />
+    <meta
+      data-react-helmet="true"
+      property="twitter:image:alt"
+      content="A beautiful photograph"
+    />
+    <meta
+      data-react-helmet="true"
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta data-react-helmet="true" name="twitter:site" content="@seldo" />
+    <meta
+      data-react-helmet="true"
+      name="twitter:title"
+      content="You Will Never Be A Full Stack Developer | Seldo.com"
+    />
+    <meta
+      data-react-helmet="true"
+      name="twitter:description"
+      content='or, Career Advice For The Working Web Dev
+
+I have been thinking a lot about the thing we call "the stack", one of many vague concepts web developers use when describing themselves. People call themselves "frontend", "backend" and "full stack" but there&apos;s no real consensus on what any of those mean.
+
+What is the stack?
+
+Part of the problem is that the "stack" is enormous: it includes at a minimum HTML, CSS and JavaScript. But how deep do you go? There are many server-side languages, ther'
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="/google-fonts/s/firasans/v10/va9E4kDNxMZdWfMOD5Vvl4jL.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="/google-fonts/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2"
+    />
+    <style type="text/css">
+      @font-face {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lato Regular'), local('Lato-Regular'),
+          url(/google-fonts/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2'),
+          url(/google-fonts/s/lato/v16/S6uyw4BMUTPHjx4wWA.woff) format('woff');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Fira Sans Regular'), local('FiraSans-Regular'),
+          url(/google-fonts/s/firasans/v10/va9E4kDNxMZdWfMOD5Vvl4jL.woff2)
+            format('woff2'),
+          url(/google-fonts/s/firasans/v10/va9E4kDNxMZdWfMOD5Vvl4jN.woff)
+            format('woff');
+        font-display: swap;
+      }
+    </style>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Seldo.com RSS Feed"
+      href="/rss.xml"
+    />
+    <link as="script" rel="preload" href="/styles-6317938c8d7b99f47be8.js" />
+    <link
+      as="script"
+      rel="preload"
+      href="/component---src-components-post-page-js-7cd9a2051a5b756943d9.js"
+    />
+    <link as="script" rel="preload" href="/commons-415fccf307c3bd1dfc32.js" />
+    <link as="script" rel="preload" href="/app-9383dc4058dc6fd3048a.js" />
+    <link
+      as="script"
+      rel="preload"
+      href="/webpack-runtime-513e86d492ba6902f824.js"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="/page-data/posts/you-will-never-be-a-full-stack-developer/page-data.json"
+      crossorigin="anonymous"
+    />
+    <link
+      as="fetch"
+      rel="preload"
+      href="/page-data/app-data.json"
+      crossorigin="anonymous"
+    />
+    <meta
+      property="twitter:image"
+      content="https://seldo.com/static/913882f97dc95a72f0a15ad9458b0447/1e72a/IMG_2791.jpg"
+      data-react-helmet="true"
+    />
+    <meta name="keywords" content="index,career advice,intro,keyword">
+  </head>
+
+  <body class="vsc-initialized">
+    <div id="___gatsby">
+      <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
+        <header>
+          <div class="headerLogo">
+            <h1>
+              <a href="/"><span>Seldo.com</span></a>
+            </h1>
+          </div>
+        </header>
+        <div class="mainContainer">
+          <main>
+            <div class="postPage">
+              <div class="singlePost flexyColumn">
+                <div class="postDate">23 February, 2020</div>
+                <h1>You Will Never Be A Full Stack Developer</h1>
+                <div>
+                  <h2>or, Career Advice For The Working Web Dev</h2>
+
+                  <p>
+                    I have been thinking a lot about the thing we call "the
+                    stack", one of many vague concepts web developers use when
+                    describing themselves. People call themselves "frontend",
+                    "backend" and "full stack" but there's no real consensus on
+                    what any of those mean.
+                  </p>
+                  <h3>What is the stack?</h3>
+
+                  <p>
+                    Part of the problem is that the "stack" is enormous: it
+                    includes at a minimum HTML, CSS and JavaScript. But how deep
+                    do you go? There are many server-side languages, there's
+                    networking to consider, there are application servers and
+                    HTTP servers and systems-level concerns. There are build
+                    tools, performance optimization, mobile experiences, API
+                    surfaces, databases and object stores. You could spend a
+                    lifetime enthusiastically trying to learn all of these
+                    things and never be done, and I know because that's exactly
+                    what I've been doing and I'm not done. So you almost
+                    certainly aren't either.
+                  </p>
+                  <h3>The stack is always evolving</h3>
+
+                  <p>
+                    The other part of the problem is that the stack keeps
+                    evolving: JavaScript and CSS didn't exist when I learned web
+                    development in late 1995, but hand-rolling your own HTTP
+                    server was still considered a reasonable thing to do.
+                    Writing PHP, which parsed HTTP headers for me, was
+                    considered "lazy" and "inefficient" and "not understanding
+                    the fundamentals". These are charges still leveled at new
+                    devs today, but in the world of JavaScript, where the people
+                    advocating for the fundamentals are eight levels up the
+                    stack from where I was in 1995.
+                  </p>
+                  <p>
+                    I have concluded that there are no such thing as the
+                    "fundamentals" in an ever-changing stack. Learn the thing
+                    that helps you get the job done. To get new things done you
+                    will probably need to learn things up and down the stack
+                    from where you start, and that's fine. Keep going at your
+                    own pace.
+                  </p>
+                  <h3>The stack, visualized</h3>
+
+                  <p>
+                    Thinking about the stack in this way made me want to
+                    visualize how the stack had changed. I threw a couple drafts
+                    out on Twitter and got a lot of good feedback and ended up
+                    with this, a 30 year history of web development summarized
+                    into a shifting rainbow of the stack (click through to
+                    embiggen):
+                  </p>
+                  <div class="bigImage">
+                    <a
+                      href="/pictures/Blogged/What the average web developer spends time thinking about, 1990-2020 v3.png"
+                      ><img
+                        src="/pictures/Blogged/What the average web developer spends time thinking about, 1990-2020 v3.png"
+                        alt="A visualization of many levels of technology layered on top of each other"
+                        width="100%"
+                        border="0"
+                    /></a>
+                  </div>
+
+                  <p>
+                    It's important to be clear that this is NOT BASED ON ANY
+                    OBJECTIVE DATA. Do not come at me for sources. I made it all
+                    up. This is a totally subjective visualization. The
+                    "average" developer is hard to pin down and "what they spend
+                    time thinking about" is an even more vague idea. But enough
+                    developers have looked at this and said it roughly matches
+                    their experience that I'm willing to work with it, and think
+                    about what it's showing me.
+                  </p>
+                  <h3>
+                    Demands for software are out pacing the supply of developers
+                  </h3>
+
+                  <p>
+                    The first important point is that our brains aren't getting
+                    any larger, but the stack always is. Consumer expectations
+                    of web applications have risen relentlessly, so we're always
+                    having to think about new things. You could build a web app
+                    of 1995 quality in an afternoon today, but nobody would be
+                    happy with it.
+                  </p>
+                  <p>
+                    The next important factor is that as the web has grown to
+                    become the dominant platform for all new software, the
+                    demand for developers has continued to far out-pace supply.
+                    This shows up firstly as the absurd salaries of web
+                    developers at every level of the stack in 2020, but also as
+                    a constraint on team sizes: companies cannot throw hundreds
+                    of web developers at a problem because nobody can afford
+                    them.
+                  </p>
+                  <h3>Simplification is essential</h3>
+
+                  <p>
+                    The result of the dual pressures of ever-rising expectations
+                    and almost-flat team sizes is a relentless pressure to
+                    shrink the stack. We simply cannot think about everything at
+                    once, we cannot build everything from scratch. We have to
+                    simplify the stack in order to be able to get things done.
+                  </p>
+                  <p>
+                    The mechanisms by which we simplify the stack are threefold:
+                  </p>
+                  <h4>1. Standardization</h4>
+
+                  <p>
+                    A really great way to simplify things is to choose a default
+                    that nearly everyone uses. When everyone's working on the
+                    same platform, there are economies of scale that benefit
+                    everyone: bugs are fixed faster, there's better tutorials
+                    and documentation, new tools will be built on top of that
+                    platform.
+                  </p>
+                  <p>
+                    A default is beneficial to everyone even if the default that
+                    wins isn't the best option available. This happened in the
+                    1980s and 1990s with Windows for desktop operating systems.
+                    The public didn't sit down and have a meeting to adopt
+                    Windows, it just happened. It happened again in the early
+                    2010s with Ubuntu: nobody sat down and had a meeting that
+                    said "we're going to run web servers on Ubuntu" but it is an
+                    overwhelmingly popular choice today. This same effect is
+                    arguably happening now with React at the component level.
+                  </p>
+                  <p>
+                    With all of these examples, it doesn't really matter whether
+                    the default is objectively the best, or even if it's
+                    possible to pick a single default that is best for all
+                    use-cases. Having a de facto standard allows innovation to
+                    happen with the assumption of that platform in place. The
+                    simplification is more valuable than the choice itself.
+                  </p>
+                  <h4>2. Packaging</h4>
+
+                  <p>
+                    Another way to simplify things is to take a bunch of things
+                    that are often needed at the same time and package them up
+                    together so they work together seamlessly. Stripe is a great
+                    example of this: Stripe hasn't standardized how payments
+                    work globally; there are still a mess of banks and credit
+                    card companies and LLCs and fraud detection mechanisms and
+                    subscription management to think about. But you can get all
+                    of those things from Stripe at the same time, and the result
+                    is a radically simplified experience that developers love.
+                  </p>
+                  <p>
+                    Obviously packaging also manifests at other levels: package
+                    managers like my beloved npm aren't doing the packaging
+                    themselves, they are providing a mechanism by which millions
+                    of authors package up functionality, but packages are
+                    overwhelmingly how developers integrate software now.
+                  </p>
+                  <p>
+                    AWS and the other cloud providers are also primarily in the
+                    packaging game. AWS didn't invent virtualization software,
+                    it just made it really easy to buy. Every kind of new
+                    database or server or processing project that gains traction
+                    quickly gets an AWS-hosted version. With a few notable
+                    exceptions they're not inventing new tech, they're just
+                    selling it very efficiently.
+                  </p>
+                  <h4>3. Abstraction</h4>
+
+                  <p>
+                    The final way we survive the ever growing stack is by
+                    abstracting details away. Every software framework you've
+                    ever used is in the abstraction game: it takes a
+                    general-purpose tool, picks a specific set of common
+                    use-cases, and puts up scaffolding and guard rails that make
+                    it easier to build those specific use cases by giving you
+                    less to do and fewer choices to think about.
+                  </p>
+                  <p>
+                    The lines between these three are blurry. Popular
+                    abstractions become standardizations. Good packaging tends
+                    to abstract some details away. But these three lenses are
+                    useful for thinking about the state of things.
+                  </p>
+                  <p>
+                    One thing to note is that every form of simplification comes
+                    with a cost. By picking a standard, you save yourself time
+                    and gain tooling but lose potential efficiency from a
+                    solution more specifically designed for your use case. By
+                    picking a packaged solution, you are often paying a literal
+                    cost to a vendor. By picking an abstraction, you are almost
+                    always losing some amount of resource efficiency by putting
+                    an additional layer of code between you and your problem.
+                    All simplification involves trade-offs.
+                  </p>
+                  <h3>Simplification is worth the costs</h3>
+
+                  <p>
+                    A lot of complaints from web developers come from the sense
+                    that these trade-offs are not worth it, or at least that we
+                    are making them without fully considering all our options.
+                    Sometimes it's true, but more often the mere fact of not
+                    needing to think about the problem at all out-weighs any
+                    potential benefits. A new developer could spend years
+                    figuring out the perfect configuration of HTTP servers for
+                    maximum throughput and efficiency -- or they could ship
+                    tomorrow with whatever the default is and never spend any
+                    time at all thinking about it. In an ever-growing stack, the
+                    ideal solution is one that lets you eliminate a layer
+                    entirely from consideration.
+                  </p>
+                  <h3>Simplification is a self-perpetuating cycle</h3>
+
+                  <p>
+                    A side-effect of the push for simplification is that it
+                    creates a feedback loop. By making it easier to build our
+                    apps, we make it easier for everyone to build apps. This
+                    results in the quality of web software constantly rising.
+                    This in turn fuels consumer expectations, further increasing
+                    the pressure that created the simplification in the first
+                    place.
+                  </p>
+                  <h3>The whole stack is still there</h3>
+
+                  <p>
+                    Obviously, the layers in my stack that go away don't really
+                    go away. Developers are still working on hardware and
+                    networking and operating system, in fact more than ever
+                    before. There are people making absurd amounts of money
+                    designing new microchips every day. But they are vastly
+                    outnumbered by developers further up the stack who are not
+                    thinking about those things at all. And, and this is the
+                    important part: that's fine.
+                  </p>
+                  <h3>The stack is too big to learn</h3>
+
+                  <p>
+                    You can't learn the whole stack. Nobody can. Maybe it was
+                    possible in 1990, the day after the web was invented, but
+                    I'm not even sure about that. The stack grows and shifts and
+                    evolves every day. We are constantly throwing more money and
+                    more processor cycles away by using standards, packages and
+                    abstractions, and that's fine too. These costs are usually
+                    worth it today, and even if they aren't today they will be
+                    six months from now as these things get cheaper and more
+                    efficient all the time.
+                  </p>
+                  <h3>What does this mean for me?</h3>
+
+                  <p>
+                    I can see a few lessons to pull out of thinking about the
+                    stack in this way.
+                  </p>
+                  <h4>
+                    1. It feels like you're constantly running just to keep up.
+                  </h4>
+
+                  <p>
+                    You're not imagining that. If you aren't learning new things
+                    all the time, you will be constantly drifting down-stack.
+                    The things you know will be getting diminished in value:
+                    people may settle on a standard that isn't the thing you
+                    know. Your area of expertise may be packaged up into a
+                    single, easy-to-buy product so nobody will ask you to build
+                    it from scratch. The details and subtleties that you provide
+                    value by understanding today will be wrapped in an
+                    abstraction tomorrow.
+                  </p>
+                  <h4>2. You can choose to specialize, but be careful.</h4>
+
+                  <p>
+                    There are still chip designers, and people who write
+                    operating systems, and network stack specialists. If you get
+                    really good at an important layer of the stack, you can stay
+                    there forever and make a lot of money doing it. But choose
+                    wisely: if your speciality gets eliminated by a standard, or
+                    an abstraction becomes good enough that nobody needs to
+                    iterate on it further, you can find yourself in a shrinking
+                    pool of job opportunities.
+                  </p>
+                  <h4>
+                    3. You can constantly run up the stack, but be careful.
+                  </h4>
+
+                  <p>
+                    The alternative to picking a few layers to settle down in is
+                    to constantly move up stack, learning the newest and highest
+                    value things. By default this is where most people will end
+                    up, because in general there are more people working on the
+                    stack the higher up you go. But be careful going too far:
+                    it's not always clear what the next big thing is going to
+                    be, and you can end up learning a dozen new abstractions
+                    that nobody ends up using, or getting locked into a packaged
+                    solution that gets overtaken by a competitor.
+                  </p>
+                  <h3>This is fine</h3>
+
+                  <div class="bigImage">
+                    <img
+                      src="/pictures/Blogged/this-is-fine.jpg"
+                      alt="A dog holding a coffee cup in a room on fire, saying 'this is fine'"
+                      width="100%"
+                      border="0"
+                    />
+                  </div>
+
+                  <p>
+                    There's a way of looking at this interpretation of the
+                    career landscape of a web developer that can seem daunting:
+                    you're constantly under pressure to do better, to learn new
+                    things, always at risk of being outmoded or made redundant.
+                  </p>
+                  <p>
+                    But I choose to think about it a different way: web
+                    development is a career where I will never be bored. I will
+                    never have learned everything there is to know. I will never
+                    get stuck using one tool or framework for a decade. And for
+                    the same amount of effort, the work I produce this year will
+                    always be better than the work I did the year before.
+                    Perhaps not more efficient, but more sophisticated and more
+                    appreciated by my users. And the inexorable simplification
+                    of the stack is what helps me do it.
+                  </p>
+                  <h3>Further questions</h3>
+
+                  <p>
+                    This post is already too long, so I've ended it here, but I
+                    have a bunch of further exploration I want to do on this
+                    topic:
+                  </p>
+                  <ol>
+                    <li>
+                      Where is the current stack going to go? What are the new
+                      layers yet to arrive? Which of the existing layers are
+                      destined to vanish?
+                    </li>
+                    <li>
+                      Does this model of the stack give a clue as to which tech
+                      and which companies in the space will succeed and which
+                      will fail? (Spoiler: yes)
+                    </li>
+                    <li>
+                      Is there any idea for a new startup or two hidden in here?
+                      Maybe.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="postEnd">
+                <a href="/"
+                  ><svg
+                    class="alpaca"
+                    version="1.1"
+                    id="Layer_1"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 877.9 877.9"
+                    style="enable-background:new 0 0 877.9 877.9"
+                    xml:space="preserve"
+                  >
+                    <style type="text/css">
+                      .st0 {
+                        fill: #ffffff;
+                      }
+                      .st1 {
+                        fill: #2b252c;
+                      }
+                      .st2 {
+                        fill: #64b5e3;
+                      }
+                    </style>
+                    <title>floof-with-border</title>
+                    <circle class="st0" cx="439" cy="439" r="439"></circle>
+                    <path
+                      class="st1"
+                      d="M513.6,528.9c-2.3-0.6-4.8,0.8-5.4,3.1l0,0l0,0l0,0.2c0,0.2-0.1,0.4-0.3,0.8c-0.4,1-0.8,2-1.3,3
+	c-1.5,3.2-3.6,6.1-6,8.6c-2,2.1-4.4,3.9-7,5.3c-4.5,2.3-9.4,3.4-14.4,3.3c-6.1,0.1-12.1-1.4-17.4-4.5c-4.4-2.5-8-6.4-10.2-11
+	c-1.4-3-2.1-6.2-2.1-9.5v-10.7c4.4-0.6,8.6-2.7,11.8-5.9c2.9-3,5.2-6.6,6.5-10.6c2,0.9,4.1,1.6,6.2,2.1c2.4,0.5,4.9,0.8,7.3,0.8
+	c2.5,0,4.9-0.3,7.3-0.9c2.9-0.7,5.5-2.5,7.2-4.9c2.4-3.3,3.2-7.4,2.3-11.3c-0.5-2.4-2.9-3.9-5.2-3.4s-3.9,2.9-3.4,5.2
+	c0,0.1,0,0.2,0.1,0.3c0.1,0.4,0.1,0.8,0.1,1.2c0,1-0.3,2-0.9,2.8c-0.6,0.8-1.4,1.4-2.3,1.6c-1.7,0.4-3.4,0.6-5.1,0.6
+	c-1.8,0-3.7-0.2-5.5-0.6c-1.6-0.3-3.1-0.8-4.6-1.5l0,0c-1.1-0.6-2.4-0.9-3.7-0.9c-3.6,0-6.8,2.3-8,5.7c-0.7,2.1-1.7,4.1-3,5.9
+	c-1.3,1.9-3.2,3.4-5.3,4.3c-1.8,0.7-3.6,1.1-5.5,1h-1.1c-1.9,0.1-3.8-0.3-5.5-1c-1.4-0.6-2.7-1.5-3.9-2.6c-2.1-2.2-3.6-4.8-4.5-7.6
+	l0,0c-1.2-3.4-4.4-5.7-8-5.7c-1.3,0-2.6,0.3-3.7,0.9c-1.4,0.7-3,1.2-4.5,1.5c-1.8,0.4-3.6,0.6-5.5,0.6c-1.7,0-3.4-0.2-5.1-0.6
+	c-0.9-0.2-1.8-0.8-2.3-1.6c-0.6-0.8-0.9-1.8-0.9-2.8c0-0.4,0-0.8,0.1-1.2l0,0c0.6-2.4-0.9-4.8-3.2-5.3c-2.4-0.6-4.8,0.9-5.3,3.2
+	c-0.3,1.1-0.4,2.2-0.4,3.3c0,2.9,0.9,5.7,2.6,8.1c1.8,2.4,4.3,4.2,7.2,4.9c2.4,0.6,4.8,0.9,7.3,0.9c2.5,0,4.9-0.3,7.3-0.8
+	c2.1-0.4,4.2-1.1,6.2-2.1c1,2.8,2.4,5.5,4.1,7.9c2.3,3.1,5.4,5.6,8.9,7.2c1.6,0.7,3.3,1.2,5,1.4v10.7c0,3.3-0.7,6.5-2,9.5
+	c-1.4,3-3.4,5.7-5.9,7.9c-5.1,4.6-12.4,7.6-21.6,7.6c-3.8,0-7.5-0.6-11.1-1.8c-2.9-1-5.5-2.5-7.9-4.5c-3.6-3-6.5-6.8-8.5-11.1
+	c-0.6-1.2-1.1-2.4-1.5-3.7l0,0c-0.6-2.4-3.1-3.7-5.4-3.1c-2.4,0.6-3.7,3.1-3.1,5.4c0.5,1.9,1.3,3.7,2.1,5.5c1.9,4,4.5,7.7,7.6,10.9
+	c2.7,2.8,5.8,5.2,9.3,7c5.7,2.9,12.1,4.4,18.5,4.3c5.5,0,11-1,16.2-3c14.2,11.1,29.5,7.4,36.1,0.2c5,1.8,10.4,2.8,15.7,2.8
+	c5,0,9.9-0.8,14.6-2.5c3.8-1.5,7.4-3.6,10.5-6.2c4.6-4,8.3-8.9,10.7-14.4c0.7-1.5,1.2-3,1.7-4.5l0,0
+	C517.3,532,516,529.5,513.6,528.9z"
+                    ></path>
+                    <path
+                      class="st1"
+                      d="M528.6,413.5c-9.9,0-18.1,7.5-19.2,17.3c-0.1,1,0.6,1.9,1.6,2c0.1,0,0.1,0,0.2,0H546c1,0,1.8-0.8,1.8-1.8
+	c0-0.1,0-0.1,0-0.2C546.7,421,538.5,413.5,528.6,413.5z"
+                    ></path>
+                    <path
+                      class="st1"
+                      d="M476.6,581.6c-9.4,5.4-20.1,8.2-30.9,8.2l0,0c-0.2,0-0.4,0-0.5,0c-0.2,0-0.4,0-0.5,0c-10.8,0-21.5-2.8-30.9-8.2
+	c-2.1-1.2-4.8-0.5-6,1.7c-1.2,2.1-0.5,4.8,1.7,6l0,0c10.7,6.1,22.9,9.3,35.2,9.3c0.2,0,0.4,0,0.5-0.1c0.2,0,0.4,0.1,0.5,0.1
+	c12.4,0,24.5-3.2,35.2-9.3c2.1-1.2,2.9-3.9,1.7-6C481.4,581.2,478.7,580.4,476.6,581.6L476.6,581.6z"
+                    ></path>
+                    <path
+                      class="st1"
+                      d="M361.8,413.5c-9.9,0-18.1,7.5-19.1,17.3c-0.1,1,0.6,1.9,1.6,2c0.1,0,0.1,0,0.2,0h34.7c1,0,1.8-0.8,1.8-1.8
+	c0-0.1,0-0.1,0-0.2C379.9,421,371.6,413.5,361.8,413.5z"
+                    ></path>
+                    <path
+                      class="st2"
+                      d="M439,65.4C232.6,65.4,65.4,232.6,65.4,439c0,166,108.3,306.8,258.1,355.4c10.8-34.5,16.4-83.1,16.4-157.3v-47.2
+	l-21.3-25.7c-7.8-9.4-11.4-21.5-10.2-33.6c1-9.6,5.7-50.3,9.1-80.8c8.9,16.1,25.8,26.1,44.2,26c26.9,0,49.8-19.7,53.8-46.3
+	c0.2-0.4,0.3-0.8,0.4-1.2c0.8-3.2,2.1-6.2,4-8.9c1.8-2.6,4-4.8,6.5-6.7c5.5-3.8,12-5.8,18.7-5.8c5.1,0,10.1,1.1,14.6,3.3
+	c4.3,2.1,7.9,5.2,10.6,9.1c1.9,2.7,3.2,5.7,4,8.9c0.1,0.4,0.3,0.8,0.4,1.2c4,26.6,26.9,46.3,53.8,46.3c18.8,0.2,36.1-10.2,44.8-26.9
+	c3.3,30.7,7.6,72.2,8.6,81.7c1.2,12.1-2.4,24.2-10.2,33.6l-21.3,25.7l4.6,84.9c1.9,25.2,0.1,73.1-5.2,121.1
+	C702,748.6,812.6,606.7,812.6,439C812.6,232.6,645.3,65.4,439,65.4z M505.5,118.1c11.8,10.2,61.8,58.2,61.8,131
+	c0,15.2-5,29.2-10.4,40c-0.4,0.7-1.3,1-2,0.6c-0.1-0.1-0.2-0.2-0.3-0.3c-4.1-3.8-11.3-5-15.3-5.3c-1.6-0.2-2.8-1.5-2.7-3.1
+	c0.3-8.3-3.9-15.1-10-20.7c-5.7-5.2-15-4.5-19.9-3.7c-1.6,0.3-3.1-0.8-3.4-2.4c0-0.2,0-0.3,0-0.5c0-21.6-0.2-134.6-0.2-134.6
+	c0-0.8,0.6-1.5,1.5-1.5C504.9,117.7,505.2,117.9,505.5,118.1z M396.3,122.3c0.7-0.5,1.6-0.2,2.1,0.5c0.2,0.2,0.2,0.5,0.2,0.8v100.6
+	c0,0.8-0.7,1.5-1.5,1.5c-10-0.1-19.1,5.6-23.4,14.6c-0.4,0.7-1.2,1-1.9,0.7c0,0,0,0-0.1,0c-3.2-1.7-11.7-5.5-21-2.7
+	c-3.4,1-6.6,2.8-9.3,5.2c-0.6,0.5-1.5,0.5-2.1-0.1c-0.3-0.3-0.4-0.7-0.4-1.1C345.3,161,383,130.5,396.3,122.3z M361.8,464
+	c-17.5,0-31.8-10.6-37.4-27.7c-1.6-4.8-2.3-9.8-2.3-14.9c-0.1-3.9,0.9-7.7,3-11l0,0c2.5-3.5,5.8-6.4,9.7-8.2c16.9-8.8,37-8.8,53.9,0
+	c10.4,5.4,15.7,11.9,15.7,19.2C404.3,445,385.3,464,361.8,464L361.8,464z M477.3,409c-1.9-2.2-4.1-4.2-6.5-5.9
+	c-7.4-5.2-16.3-7.9-25.4-7.9h-0.6c-6.7,0-13.4,1.6-19.5,4.5c-4.7,2.3-8.8,5.4-12.2,9.3c-3-5.8-8.7-11.9-19-17.3
+	c-20.3-10.6-44.5-10.6-64.8,0c-7.3,3.9-10.2,7.3-18.4,3.9c-5-2.1-7.3-1.4-12.6,0.9c-6.3,1.9-13.1,0-17.5-4.9l-0.4-0.5
+	c-3.2-3.9-4.6-9-3.7-14c0.8-4.7-2.2-9.2-6.9-10.1c-9.2-1.9-15.1-11-13.1-20.1c0.3-1.3,0.7-2.5,1.2-3.7c2-4.3,0.2-9.5-4.1-11.6
+	c-4.4-2.2-7.6-6.1-8.9-10.8l-0.1-0.6c-1.1-4.9-0.1-10,2.9-14c2.8-3.8,2.1-9.2-1.6-12.2c-7.4-5.8-8.7-16.4-3-23.9
+	c0.5-0.6,1-1.2,1.6-1.8c3.4-3.3,3.6-8.8,0.3-12.3c-6.4-6.9-6-17.6,0.9-24c1.1-1,2.3-1.9,3.6-2.6c2.5-1.3,4-3.9,3.9-6.7
+	c-0.5-18.1,11.3-25.4,14.9-27.2c4.3-2.1,8.8-2.7,12.2-1.7c-7.9,11.2-7.2,21-6,26c1,3.9,4.4,6.7,8.5,6.7h0.3
+	c8.5-0.3,15.8,5.8,17.3,14.1c0.8,4.8,5.4,8.1,10.2,7.3c0.5-0.1,1-0.2,1.5-0.4c6.7-2.7,14.4-0.8,19,4.8c3.2,3.7,8.8,4.2,12.5,1
+	c0.5-0.4,0.9-0.8,1.2-1.3c5.6-7,15.7-8.4,23-3.2c2.1,1.5,4.9,2,7.4,1.2c2.6-0.8,4.8-2.7,5.8-5.2c2.2-5.4,7-9.3,12.8-10.2
+	c1.4-0.2,2.8-0.3,4.2-0.2c4.5,0.3,8.6,2.4,11.6,5.7c3.2,3.7,8.8,4.1,12.5,1c0.5-0.4,0.9-0.9,1.3-1.4c3.6-4.7,9.5-7.2,15.4-6.5
+	c6,0.6,11.1,4.4,13.6,9.8c2,4.5,7.3,6.4,11.7,4.4c0.6-0.3,1.1-0.6,1.6-1c4.3-3.2,11.8-3.9,18.6-1.9c5.7,1.7,10,6.9,10,12
+	c0,0.5-0.4,6.3,3.5,8.1c2.8,1.4,6,1.7,9,0.8c4.9-1.6,10.2-0.9,14.5,1.9c4.8,3.5,7.2,9.4,6.2,15.2c-0.8,4.8,2.6,9.4,7.4,10.1
+	c0.7,0.1,1.4,0.1,2.1,0.1c5-0.4,10,1.4,13.4,5.1c0.6,0.6,1.1,1.2,1.5,1.9c4.2,6.3,2.7,13.2,0.6,17.9c-1,2.2-1,4.7-0.1,7
+	c0.9,2.2,2.6,3.9,4.8,4.8c4.5,1.8,7.5,6.1,7.7,10.9l1.7,54.9c-1.8-1.4-3.8-2.6-5.8-3.6c-20.3-10.5-44.5-10.5-64.8,0
+	C485.9,397.1,480.3,403.3,477.3,409L477.3,409z M566.4,434.9c-5.1,17.7-19.9,29.1-37.8,29.1c-23.5,0-42.6-19.1-42.6-42.6
+	c0-7.4,5.3-13.8,15.7-19.2c16.9-8.8,37-8.8,53.9,0c3.8,1.8,7.1,4.6,9.5,8l0,0c2.2,3.3,3.3,7.3,3.1,11.2
+	C568.3,426,567.7,430.5,566.4,434.9L566.4,434.9z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer>
+          <div>
+            © 2001 -
+            <!-- -->2020<!-- -->
+            Laurie Voss.
+          </div>
+          <div>
+            <a href="/">Home</a> | <a href="/about">About me</a> |
+            <a href="/archive">Archive</a>
+          </div>
+        </footer>
+      </div>
+      <div
+        id="gatsby-announcer"
+        aria-live="assertive"
+        aria-atomic="true"
+        style="position: absolute; top: 0px; width: 1px; height: 1px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;"
+      ></div>
+    </div>
+    <script
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script>
+    <script>
+      if (true) {
+        (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          (i[r] =
+            i[r] ||
+            function() {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          'script',
+          'https://www.google-analytics.com/analytics.js',
+          'ga'
+        );
+      }
+      if (typeof ga === 'function') {
+        ga('create', 'UA-1536085-2', 'auto', {});
+      }
+    </script>
+    <script id="gatsby-script-loader">
+      /*<![CDATA[*/ window.pagePath =
+        '/posts/you-will-never-be-a-full-stack-developer'; /*]]>*/
+    </script>
+    <script id="gatsby-chunk-mapping">
+      /*<![CDATA[*/ window.___chunkMapping = {
+        app: ['/app-9383dc4058dc6fd3048a.js'],
+        'component---src-components-post-page-js': [
+          '/component---src-components-post-page-js-7cd9a2051a5b756943d9.js'
+        ],
+        'component---src-components-archive-page-js': [
+          '/component---src-components-archive-page-js-90b9751dde23c2372e40.js'
+        ],
+        'component---src-pages-404-js': [
+          '/component---src-pages-404-js-247aa3daa08935aa7855.js'
+        ],
+        'component---src-pages-about-js': [
+          '/component---src-pages-about-js-44e758e1b4e13522aa85.js'
+        ],
+        'component---src-pages-admin-index-js': [
+          '/component---src-pages-admin-index-js-377f20e11c38acd26430.js'
+        ],
+        'component---src-pages-admin-preview-js': [
+          '/component---src-pages-admin-preview-js-2c060eb69ff0d2c9bee4.js'
+        ],
+        'component---src-pages-colophon-js': [
+          '/component---src-pages-colophon-js-323cc4fc3af2fa32c4ac.js'
+        ],
+        'component---src-pages-index-js': [
+          '/component---src-pages-index-js-51c6001b816c1f82d8a4.js'
+        ]
+      }; /*]]>*/
+    </script>
+    <script src="/webpack-runtime-513e86d492ba6902f824.js" async=""></script>
+    <script src="/app-9383dc4058dc6fd3048a.js" async=""></script>
+    <script src="/commons-415fccf307c3bd1dfc32.js" async=""></script>
+    <script
+      src="/component---src-components-post-page-js-7cd9a2051a5b756943d9.js"
+      async=""
+    ></script>
+    <script src="/styles-6317938c8d7b99f47be8.js" async=""></script>
+  </body>
 </html>
