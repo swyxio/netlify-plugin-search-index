@@ -8,9 +8,9 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 
 ## Demo
 
-Demo site: https://netlify-plugin-search-index.netlify.com/.netlify/functions/search?s=web
-Demo search function: https://netlify-plugin-search-index.netlify.com/.netlify/functions/search?s=web
-Demo JSON blob: https://netlify-plugin-search-index.netlify.com/searchIndex.json
+- Demo site: https://netlify-plugin-search-index.netlify.app
+- Demo search function: https://netlify-plugin-search-index.netlify.app/.netlify/functions/search?s=web
+- Demo JSON blob: https://netlify-plugin-search-index.netlify.app/searchIndex.json
 
 ## Usage
 
