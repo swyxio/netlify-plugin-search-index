@@ -25,11 +25,12 @@ function netlifyPluginSearchIndex(_) {
           publishDirJSONFileName = 'searchIndex',
           debugMode,
         },
-        constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST }
+        constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST },
+        utils: { build }
       } = opts;
 
       if (generatedFunctionName === null && publishDirJSONFileName === null) {
-        throw new Error(
+        build.failPlugin(
           'generatedFunctionName and publishDirJSONFileName cannot both be null, this plugin wouldnt be generating anything!'
         );
       }
@@ -82,7 +83,7 @@ function netlifyPluginSearchIndex(_) {
        */
       if (generatedFunctionName) {
         if (typeof FUNCTIONS_SRC === 'undefined') {
-          throw new Error('FUNCTIONS_SRC is undefined - did you forget to declare a functions folder in netlify.toml? https://github.com/sw-yx/netlify-plugin-search-index#usage')
+          build.failPlugin('FUNCTIONS_SRC is undefined - did you forget to declare a functions folder in netlify.toml? https://github.com/sw-yx/netlify-plugin-search-index#usage')
         }
         const searchIndexFunctionPath = path.join(
           FUNCTIONS_SRC,
