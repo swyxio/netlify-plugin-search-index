@@ -22,7 +22,8 @@ test('plugin fixture works', () => {
         BUILD_DIR: 'fixtures/publishDir',
         FUNCTIONS_SRC: 'fixtures/functions',
         FUNCTIONS_DIST: 'fixtures/functions-dist'
-      }
+      },
+      utils: { build: { failBuild() {} } },
     })
     .then(() => {
       index = require('./publishDir/mySearchIndex.json')
