@@ -25,7 +25,7 @@ function meta() {
       if (is(node, 'head')) {
         visit(node, (child) => {
           if (is(child, 'meta')) {
-            const { name, property, content } = child.properties
+            const { name, property, content = '' } = child.properties
             if (name === 'description') {
               file.data.description = content
             } else if (name === 'keywords') {
