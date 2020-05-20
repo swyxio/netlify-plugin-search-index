@@ -104,12 +104,12 @@ function netlifyPluginGenerateArticles() {
     name: 'netlify-plugin-generate-article',
     async onPostBuild(opts) {
       const {
-        pluginConfig: {
+        inputs: {
           folder = 'articles'
         },
         constants: { BUILD_DIR }
       } = opts;
-      
+
       try {
         const articles = await fetchContent()
         articles.forEach(async (article) => {
