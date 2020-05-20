@@ -25,7 +25,7 @@ function netlifyPluginSearchIndex(_) {
           publishDirJSONFileName = 'searchIndex',
           debugMode,
         },
-        constants: { BUILD_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST },
+        constants: { PUBLISH_DIR, FUNCTIONS_SRC, FUNCTIONS_DIST },
         utils: { build }
       } = opts;
 
@@ -39,14 +39,14 @@ function netlifyPluginSearchIndex(_) {
       }
 
       let searchIndex = {}
-      const newManifest = await walk(BUILD_DIR, exclude)
+      const newManifest = await walk(PUBLISH_DIR, exclude)
 
       // https://www.npmjs.com/package/html-to-text#user-content-options
       await Promise.all(
         newManifest.map(async (htmlFilePath) => {
-          const indexPath = path.relative(BUILD_DIR, htmlFilePath);
+          const indexPath = path.relative(PUBLISH_DIR, htmlFilePath);
           const htmlFileContent = await readFile(htmlFilePath, 'utf8');
-          searchIndex[`/${indexPath}`] = await parse(htmlFileContent, htmlFilePath, { BUILD_DIR })
+          searchIndex[`/${indexPath}`] = await parse(htmlFileContent, htmlFilePath, { PUBLISH_DIR })
         })
       );
 
@@ -59,7 +59,7 @@ function netlifyPluginSearchIndex(_) {
        */
       if (publishDirJSONFileName) {
         let searchIndexPath = path.join(
-          BUILD_DIR,
+          PUBLISH_DIR,
           publishDirJSONFileName + '.json'
         );
         if (await pathExists(searchIndexPath)) {

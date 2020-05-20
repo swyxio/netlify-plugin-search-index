@@ -107,15 +107,15 @@ function netlifyPluginGenerateArticles() {
         pluginConfig: {
           folder = 'articles'
         },
-        constants: { BUILD_DIR }
+        constants: { PUBLISH_DIR }
       } = opts;
-      
+
       try {
         const articles = await fetchContent()
         articles.forEach(async (article) => {
           const { file, fileName } = await createVFile(article);
           writeFileSyncRecursive(
-            path.join(BUILD_DIR, folder, `${fileName}.html`),
+            path.join(PUBLISH_DIR, folder, `${fileName}.html`),
             file.contents
           );
         })
