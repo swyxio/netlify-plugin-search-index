@@ -101,7 +101,6 @@ async function fetchContent(res = [], max = 5, page = 1) {
 
 function netlifyPluginGenerateArticles() {
   return {
-    name: 'netlify-plugin-generate-article',
     async onPostBuild(opts) {
       const {
         pluginConfig: {
