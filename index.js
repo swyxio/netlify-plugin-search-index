@@ -19,7 +19,7 @@ function netlifyPluginSearchIndex(_) {
     name: 'netlify-plugin-search-index',
     async onPostBuild(opts) {
       const {
-        pluginConfig: {
+        inputs: {
           exclude = [],
           generatedFunctionName = 'search',
           publishDirJSONFileName = 'searchIndex',

@@ -12,7 +12,7 @@ test('plugin fixture works', () => {
   return initPlugin
     .onPostBuild({
       // from netlify.yml
-      pluginConfig: {
+      inputs: {
         debugMode: false,
         exclude: ['/search.html', /^\/devnull\/.*/],
         generatedFunctionName: 'mySearchFunction',
