@@ -12,14 +12,14 @@ test('plugin fixture works', () => {
   return initPlugin
     .onPostBuild({
       // from netlify.yml
-      pluginConfig: {
+      inputs: {
         debugMode: false,
         exclude: ['/search.html', /^\/devnull\/.*/],
         generatedFunctionName: 'mySearchFunction',
         publishDirJSONFileName: 'mySearchIndex'
       },
       constants: {
-        BUILD_DIR: 'fixtures/publishDir',
+        PUBLISH_DIR: 'fixtures/publishDir',
         FUNCTIONS_SRC: 'fixtures/functions',
         FUNCTIONS_DIST: 'fixtures/functions-dist'
       },

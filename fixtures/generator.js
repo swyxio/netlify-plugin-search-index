@@ -103,10 +103,10 @@ module.exports = {
     name: 'netlify-plugin-generate-article',
     async onPostBuild(opts) {
       const {
-        pluginConfig: {
+        inputs: {
           folder = 'articles'
         },
-        constants: { BUILD_DIR }
+        constants: { PUBLISH_DIR }
       } = opts;
 
       try {
@@ -114,7 +114,7 @@ module.exports = {
         articles.forEach(async (article) => {
           const { file, fileName } = await createVFile(article);
           writeFileSyncRecursive(
-            path.join(BUILD_DIR, folder, `${fileName}.html`),
+            path.join(PUBLISH_DIR, folder, `${fileName}.html`),
             file.contents
           );
         })
