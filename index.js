@@ -16,7 +16,6 @@ const writeFile = promisify(fs.writeFile);
 
 function netlifyPluginSearchIndex(_) {
   return {
-    name: 'netlify-plugin-search-index',
     async onPostBuild(opts) {
       const {
         inputs: {
