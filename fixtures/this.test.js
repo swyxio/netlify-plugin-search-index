@@ -7,7 +7,7 @@ const { indexKeys: expectedKeys } = require('../parser')
 let index
 const netlifyPlugin = require('../index.js');
 test('plugin fixture works', () => {
-  const initPlugin = netlifyPlugin();
+  const initPlugin = netlifyPlugin;
   console.log(`running ${initPlugin.name}`);
   return initPlugin
     .onPostBuild({

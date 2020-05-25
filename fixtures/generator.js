@@ -99,8 +99,8 @@ async function fetchContent(res = [], max = 5, page = 1) {
   return fetchContent([...res, ...articles], max, page + 1)
 }
 
-function netlifyPluginGenerateArticles() {
-  return {
+module.exports = {
+    name: 'netlify-plugin-generate-article',
     async onPostBuild(opts) {
       const {
         inputs: {
@@ -122,10 +122,7 @@ function netlifyPluginGenerateArticles() {
         console.error(e)
       }
     }
-  }
 }
-
-module.exports = netlifyPluginGenerateArticles;
 
 /** Pasted from https://gist.github.com/drodsou/de2ba6291aea67ffc5bc4b52d8c32abd */
 function writeFileSyncRecursive(filename, content, charset) {

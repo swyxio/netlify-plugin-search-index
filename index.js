@@ -14,8 +14,8 @@ const { parse } = require('./parser')
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-function netlifyPluginSearchIndex(_) {
-  return {
+module.exports = {
+    name: 'netlify-plugin-search-index',
     async onPostBuild(opts) {
       const {
         inputs: {
@@ -113,9 +113,7 @@ function netlifyPluginSearchIndex(_) {
         // done with generating functions
       }
     }
-  };
 }
-module.exports = netlifyPluginSearchIndex;
 
 async function walk(dir, exclude = []) {
   return (await globby(path.join(dir, '**/*.html')))
