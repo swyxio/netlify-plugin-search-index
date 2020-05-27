@@ -100,7 +100,6 @@ async function fetchContent(res = [], max = 5, page = 1) {
 }
 
 module.exports = {
-    name: 'netlify-plugin-generate-article',
     async onPostBuild(opts) {
       const {
         inputs: {
