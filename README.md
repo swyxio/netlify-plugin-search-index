@@ -116,10 +116,12 @@ You can use this plugin in two ways:
     // app.js
     document.getElementById('myForm').addEventListener('submit', async event => {
       event.preventDefault()
-      const result = await fetch(`/.netlify/functions/searchIndex?search=${event.target.searchText.value}`).then(x => x.json())
+      const result = await fetch(`/.netlify/functions/searchIndex?search=${event.target.searchText.value}&limit=25`).then(x => x.json())
       document.getElementById('result').innerText = JSON.stringify(result, null, 2)
     })
     ```
+
+You can use an optional `limit` parameter to limit the length of returned results.
 
 Under the hood, the search function uses [fuse.js](https://fusejs.io/) and in future we may expose more configurations for this.
 
