@@ -1,0 +1,4 @@
+name: 'articles-generator'
+
+inputs:
+  - name: folder
