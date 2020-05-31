@@ -9,7 +9,7 @@ searchIndex = Object.entries(searchIndex).map(([k, v]) => {
 });
 var options = {
   shouldSort: true,
-  threshold: 0.6,
+  threshold: 0.5,
   location: 0,
   distance: 100,
   maxPatternLength: 32,
@@ -28,18 +28,32 @@ var options = {
 var fuse = new Fuse(searchIndex, options);
 
 exports.handler = async (event) => {
-  const searchTerm =
-    event.queryStringParameters.search || event.queryStringParameters.s;
+  const {
+    s,
+    search,
+    limit
+  } = event.queryStringParameters
+  
+  const searchTerm = search || s
   if (typeof searchTerm === 'undefined') {
     return {
       statusCode: 400,
       body:
         'no search term specified, query this function with /?search=searchTerm or /?s=searchTerm'
-    };
+    }
   }
-  var result = fuse.search(searchTerm);
+  let parsedInt
+  if (limit) {
+    maybeInt = parseInt(limit)
+    if (maybeInt !== NaN) {
+      parsedInt = maybeInt
+    }
+  }
+
+  const result = fuse.search(searchTerm);
+  
   return {
     statusCode: 200,
-    body: JSON.stringify(result)
+    body: JSON.stringify(parsedInt ? result.slice(0, parsedInt) : result)
   };
 };
