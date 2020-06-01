@@ -123,8 +123,7 @@ You can use this plugin in two ways:
 
 You can use an optional `limit` parameter to limit the length of returned results.
 
-Under the hood, the search function uses [fuse.js](https://fusejs.io/) and in future we may expose more configurations for this.
-
+Under the hood, the search function uses [fuse.js](https://fusejs.io/) and in future we may expose more configurations for this. **Fuse.js search is fuzzy**, therefore for short strings you may get a lot of results that don't seem relevant. In future we may make Fuzzy matching opt-in, and just use `String.toLowerCase` and `String.includes` - [please see more details here](https://github.com/sw-yx/netlify-plugin-search-index/issues/19).
 
 ## Notes for contributors
 
