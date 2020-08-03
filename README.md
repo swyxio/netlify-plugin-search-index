@@ -79,13 +79,13 @@ Supplying `null` to both `generatedFunctionName` and `publishDirJSONFileName` wo
 
 #### Exclude files
 
-Your project probably contains some content files that you don't want your users to search. Pass an array of paths (or regex) to the files you don’t want to be indexed to dismiss them:
+Your project probably contains some content files that you don't want your users to search (e.g. paginated pages such as `/page/1/index.html`). Pass an array of paths (or regex) to the files you don’t want to be indexed to dismiss them:
 
 ```yml
 [[plugins]]
   package = netlify-plugin-search-index
     [plugins.inputs] = 
-      exclude = ['/ignore-this-file.html', /^\/devnull\/.*/]
+      exclude = ['/ignore-this-file.html', '''\/page\/''']
 ```
 
 #### Search params
