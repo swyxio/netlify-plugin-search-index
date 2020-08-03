@@ -20,7 +20,7 @@ To install, add the plugin in your `netlify.toml`. No config is required but we 
 <summary><b>Generating both serverless function and clientside JSON</b></summary>
 
 ```toml
-[[build]]
+[build]
   functions = functions # must specify a functions folder for this to work
 [[plugins]]
   package = netlify-plugin-search-index
