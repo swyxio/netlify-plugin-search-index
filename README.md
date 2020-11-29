@@ -14,21 +14,21 @@ However, you may wish to have a way to generate this index based ONLY on crawlin
 
 ## Usage
 
-To install, add the plugin in your `netlify.toml`. No config is required but we show the default options here.
+To install, add the plugin in your `netlify.toml`. No config is required, but we show the default options here.
 
 <details>
 <summary><b>Generating both serverless function and clientside JSON</b></summary>
 
 ```toml
 [build]
-  functions = functions # must specify a functions folder for this to work
+  functions = 'functions' # must specify a functions folder for this to work
 [[plugins]]
-  package = netlify-plugin-search-index
-    # all inputs is optional, we just show you the defaults below
-    # [plugins.inputs]
-      # ignore = ["/ignore-this-file.html"] # don't index this file
-      # generatedFunctionName = search # change the name of generated folder in case of conflicts, use `null` to turn off
-      # publishDirJSONFileName = searchIndex # also use null to turn off
+  package = 'netlify-plugin-search-index'
+  # all inputs are optional, we just show you the defaults below
+  # [plugins.inputs]
+    # ignore = ["/ignore-this-file.html"] # don't index this file
+    # generatedFunctionName = 'search' # change the name of generated folder in case of conflicts, use `null` to turn off
+    # publishDirJSONFileName = 'searchIndex' # also use null to turn off
 ```
 
 </details>
@@ -45,10 +45,10 @@ To use this plugin only for the generated serveless function, supply `null` to t
 
 ```toml
 [[plugins]]
-  package = netlify-plugin-search-index
-    [plugins.inputs]
-      generatedFunctionName = mySearchFunction
-      publishDirJSONFileName = null
+  package = 'netlify-plugin-search-index'
+  [plugins.inputs]
+    generatedFunctionName = 'mySearchFunction'
+    publishDirJSONFileName = 'null'
 ```
 
 This would generate a Netlify function at `https://yoursite.netlify.com/.netlify/functions/mySearchFunction` which you can query with `https://yoursite.netlify.com/.netlify/functions/mySearchFunction?search=foo`.
@@ -56,17 +56,16 @@ This would generate a Netlify function at `https://yoursite.netlify.com/.netlify
 </details>
 
 <details>
-
 <summary><b>Generating clientside JSON only</b></summary>
 
 To use this plugin only for the clientside JSON file, supply `null` to the `generatedFunctionName`:
 
-```yml
+```toml
 [[plugins]]
-  package = netlify-plugin-search-index
-    [plugins.inputs] = 
-      generatedFunctionName = null
-      publishDirJSONFileName = mySearchIndex # you can use / to nest in a directory
+  package = 'netlify-plugin-search-index'
+  [plugins.inputs]
+    generatedFunctionName = 'null'
+    publishDirJSONFileName = 'mySearchIndex' # you can use / to nest in a directory
 ```
 
 This would generate a clientside JSON at `https://yoursite.netlify.com/mySearchIndex.json`.
@@ -83,9 +82,9 @@ Your project probably contains some content files that you don't want your users
 
 ```yml
 [[plugins]]
-  package = netlify-plugin-search-index
-    [plugins.inputs] = 
-      exclude = ['/ignore-this-file.html', '''\/page\/''']
+  package = 'netlify-plugin-search-index'
+  [plugins.inputs]
+    exclude = ['/ignore-this-file.html', '''\/page\/''']
 ```
 
 #### Search params
@@ -106,7 +105,7 @@ After your project is built:
 
 You can use this plugin in two ways:
 
-- **Client-side**: You can simple require the JSON blob in your clientside JavaScript if it isn't too big:
+- **Client-side**: You can simply require the JSON blob in your clientside JavaScript if it isn't too big:
     ```js
     // app.js
     import searchIndex from './searchIndex.json'
